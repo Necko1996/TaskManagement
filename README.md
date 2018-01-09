@@ -8,7 +8,7 @@ It will include basic requirements for tracking tasks for students, individuals 
 This project will make progress how I make progress in the knowledge of development, design and testing.
 
 ## What will be used
-It will be developed in Laravel Framework (MVC), but it's planed to use Vue Framework for Design.
+It will be developed in Laravel Framework (MVC), but it's planed to use Vue Framework for Design in future.
 
  
 ## Suggestions
