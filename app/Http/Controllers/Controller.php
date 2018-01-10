@@ -10,4 +10,11 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $viewDir;
+
+	protected function view($view, $data = [])
+	{
+		return view($this->viewDir.".".$view, $data);
+	}
 }
