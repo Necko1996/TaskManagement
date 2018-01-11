@@ -5,9 +5,14 @@ return [
 	//// View(tasks.index)
 	'noneTasks' => 'There is no tasks at this moment for you!',
 	'createFirstTask' => 'Create your first Task',
+	'createTask' => 'Create Task',
 
 	// Table
-
+	'tableID' => 'ID',
+	'tableTitle' => 'Title',
+	'tableStatus' => 'Status',
+	'tableCreated' => 'Created',
+	'tableUpdated' => 'Updated',
 
 	//// View(tasks.create)
 	'titlePanelCreate' => 'Create Task',
