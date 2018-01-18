@@ -12,7 +12,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                <label for="title" class="col-md-4 control-label">@lang('tasks.titleCreate')</label>
+                                <label for="title" class="col-md-4 control-label">@lang('tasks.Title')</label>
 
                                 <div class="col-md-6">
                                     <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
@@ -26,7 +26,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                                <label for="body" class="col-md-4 control-label">@lang('tasks.bodyCreate')</label>
+                                <label for="body" class="col-md-4 control-label">@lang('tasks.Description')</label>
 
                                 <div class="col-md-6">
                                     <textarea id="body" class="form-control" name="body" required></textarea>
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                                <label for="status" class="col-md-4 control-label">@lang('tasks.statusCreate')</label>
+                                <label for="status" class="col-md-4 control-label">@lang('tasks.Status')</label>
 
                                 <div class="col-md-6">
                                     <select id="status" type="password" class="form-control" name="status" required>

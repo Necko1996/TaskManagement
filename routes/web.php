@@ -22,5 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Task routes
 Route::get('/tasks', 'TasksController@index')->name('tasks');
-Route::get('/tasks/create', 'TasksController@create');
-Route::post('/tasks', 'TasksController@store');
+Route::get('/tasks/create', 'TasksController@create')->name('tasks.create');
+Route::post('/tasks', 'TasksController@store')->name('tasks.store');
+Route::get('/tasks/{task}', 'TasksController@show')->name('tasks.show');
+Route::delete('/tasks/{task}', 'TasksController@destroy')->name('tasks.destroy');

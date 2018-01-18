@@ -2,24 +2,13 @@
 
 return [
 
-	//// View(tasks.index)
-	'noneTasks' => 'There is no tasks at this moment for you!',
-	'createFirstTask' => 'Create your first Task',
-	'createTask' => 'Create Task',
-
 	// Table
-	'tableID' => 'ID',
-	'tableTitle' => 'Title',
-	'tableStatus' => 'Status',
-	'tableCreated' => 'Created',
-	'tableUpdated' => 'Updated',
-
-	//// View(tasks.create)
-	'titlePanelCreate' => 'Create Task',
-	'titleCreate' => 'Title',
-	'bodyCreate' => 'Description',
-	'statusCreate' => 'Status',
-	'addTask' => 'Create Task',
+	'ID' => 'ID',
+	'Title' => 'Title',
+	'Status' => 'Status',
+	'Description' => 'Description',
+	'Created' => 'Created',
+	'Updated' => 'Updated',
 
 	// Status select options (to all)
 	'notActive' => 'Not Active', // value 0
@@ -27,7 +16,21 @@ return [
 	'Completed' => 'Completed', // value 2
 
 	//Error
-	'errorStatus' => 'Error Status!'
+	'errorStatus' => 'Error Status!',
+
+
+
+	//// View(tasks.index)
+	'noneTasks' => 'There is no tasks at this moment for you!',
+	'createFirstTask' => 'Create your first Task',
+	'createTask' => 'Create Task',
+
+	//// View(tasks.create)
+	'titlePanelCreate' => 'Create Task',
+	'addTask' => 'Create Task',
+
+	//// View(tasks.show)
+	'titlePanelShow' => 'Show Task',
 
 
 ];

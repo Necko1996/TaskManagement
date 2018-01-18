@@ -15,15 +15,16 @@
                     </div>
 
                     <div class="mb-2">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-hover">
 
                             <thead>
                                 <tr>
-                                    <th>@lang('tasks.tableID')</th>
-                                    <th>@lang('tasks.tableTitle')</th>
-                                    <th>@lang('tasks.tableStatus')</th>
-                                    <th>@lang('tasks.tableCreated')</th>
-                                    <th>@lang('tasks.tableUpdated')</th>
+                                    <th>@lang('tasks.ID')</th>
+                                    <th>@lang('tasks.Title')</th>
+                                    <th>@lang('tasks.Status')</th>
+                                    {{--<th>@lang('tasks.Created')</th>--}}
+                                    {{--<th>@lang('tasks.Updated')</th>--}}
+                                    <th> </th>
                                 </tr>
                             </thead>
 
@@ -34,18 +35,25 @@
                                         <td>{{ $task->id  }}</td>
                                         <td>{{ $task->title }}</td>
                                         <td>
-                                            @if($task->status == 0)
-                                                @lang('tasks.notActive')
-                                            @elseif($task->status == 1)
-                                                @lang('tasks.notActive')
-                                            @elseif($task->status == 2)
-                                                @lang('tasks.notActive')
-                                            @else
-                                                @lang('tasks.errorStatus')
-                                            @endif
+                                            @include('tasks.components.select-label')
                                         </td>
-                                        <td> {{ $task->created_at->diffForHumans() }}</td>
-                                        <td> {{ $task->updated_at->diffForHumans() }}</td>
+                                        <td>
+                                            <a href="{{ url('/tasks/' . $task->id ) }}">
+                                                <button class="btn btn-primary">
+                                                    View <i class="fas fa-eye"></i>
+                                                </button>
+                                            </a>
+                                            <a href="#" onclick="document.getElementById('task-delete-form').submit()">
+                                                <button class="btn btn-danger">
+                                                    Delete <i class="fas fa-trash"></i>
+                                                </button>
+                                            </a>
+
+                                            <form id="task-delete-form" action="{{ url('/tasks/' . $task->id ) }}" method="POST" style="display: none">
+                                                {{ csrf_field() }}
+                                                {{ method_field('delete') }}
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
 

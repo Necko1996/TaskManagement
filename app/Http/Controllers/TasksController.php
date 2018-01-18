@@ -63,7 +63,7 @@ class TasksController extends Controller
 	        ]
         );
 
-        return redirect('tasks');
+        return redirect()->route('tasks');
     }
 
     /**
@@ -74,7 +74,7 @@ class TasksController extends Controller
      */
     public function show(Task $task)
     {
-        return $this->view('view');
+        return $this->view('show', compact('task'));
     }
 
     /**
@@ -108,6 +108,7 @@ class TasksController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+	    return redirect()->route('tasks');
     }
 }
