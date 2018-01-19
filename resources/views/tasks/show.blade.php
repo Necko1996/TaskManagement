@@ -4,6 +4,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+
+                <div class="mx-auto pull-right m-b">
+                    <a href="{{ url('/tasks/'. $task->id . '/edit') }}">
+                        <button class="btn btn-primary">@lang('tasks.editTask') </button>
+                    </a>
+                </div>
+
+                {{-- Fixing bug with .Pull-Right and .Panel --}}
+                <div class="clearfix"></div>
+
                 <div class="panel panel-default">
 
                     <div class="panel-heading">

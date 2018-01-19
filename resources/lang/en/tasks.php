@@ -31,6 +31,11 @@ return [
 
 	//// View(tasks.show)
 	'titlePanelShow' => 'Show Task',
+	'editTask' => 'Edit Task',
+
+	//// View(tasks.edit)
+	'titlePanelEdit' => 'Edit Task',
+	'updateTask' => 'Update Task'
 
 
 ];

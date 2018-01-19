@@ -85,7 +85,7 @@ class TasksController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+		return $this->view('edit', compact('task'));
     }
 
     /**
@@ -97,7 +97,17 @@ class TasksController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+	    $this->validate($request,
+		    [
+			    'title' => 'required|min:5',
+			    'body' => 'required|min:10',
+			    'status' => 'required|integer'
+		    ]
+	    );
+
+	    $task->update( $request->all());
+
+	    return redirect()->route('tasks');
     }
 
     /**

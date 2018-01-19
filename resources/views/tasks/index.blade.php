@@ -10,7 +10,7 @@
 
                     <div class="mx-auto pull-right m-b">
                         <a href="{{ url('/tasks/create') }}">
-                            <button class="btn btn-primary">@lang('tasks.createTask')</button>
+                            <button class="btn btn-primary">@lang('tasks.createTask') </button>
                         </a>
                     </div>
 
@@ -37,7 +37,7 @@
                                         <td>
                                             @include('tasks.components.select-label')
                                         </td>
-                                        <td>
+                                        <td class="col-sm-4">
                                             <a href="{{ url('/tasks/' . $task->id ) }}">
                                                 <button class="btn btn-primary">
                                                     View <i class="fas fa-eye"></i>
