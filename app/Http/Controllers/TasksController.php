@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Lang;
 
 class TasksController extends Controller
 {
@@ -63,6 +64,8 @@ class TasksController extends Controller
 	        ]
         );
 
+        session()->flash('success-message', Lang::get('tasks.successAddTask'));
+
         return redirect()->route('tasks');
     }
 
@@ -105,7 +108,9 @@ class TasksController extends Controller
 		    ]
 	    );
 
-	    $task->update( $request->all());
+	    $task->update($request->all());
+
+	    session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
 
 	    return redirect()->route('tasks');
     }
@@ -119,6 +124,9 @@ class TasksController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
+
+	    session()->flash('success-message', Lang::get('tasks.successDeleteTask'));
+
 	    return redirect()->route('tasks');
     }
 }

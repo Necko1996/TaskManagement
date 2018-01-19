@@ -993,6 +993,8 @@ var app = new Vue({
   el: '#app'
 });
 
+__webpack_require__(46);
+
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -43008,6 +43010,19 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+   setTimeout(function () {
+      $('#success-message').fadeOut("slow");
+   }, 3000);
+});
 
 /***/ })
 /******/ ]);

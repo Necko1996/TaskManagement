@@ -73,6 +73,8 @@
             </div>
         </nav>
 
+        @include('tasks.components.success-alert')
+
         @yield('content')
     </div>
 

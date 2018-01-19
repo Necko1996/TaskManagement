@@ -5,7 +5,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">@lang('tasks.titlePanelEdit')</div>
+                    <div class="panel-heading">
+
+                        @include('tasks.components.back-button')
+
+                        @lang('tasks.titlePanelEdit')
+
+                    </div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ url('/tasks/' . $task->id) }}">
@@ -45,7 +51,6 @@
 
                                 <div class="col-md-6">
                                     <select id="status" type="password" class="form-control" name="status" required>
-                                        <option></option>
                                         <option value="0" @if($task->status == 0) selected @endif>@lang('tasks.notActive')</option>
                                         <option value="1" @if($task->status == 1) selected @endif>@lang('tasks.inProgress')</option>
                                         <option value="2" @if($task->status == 2) selected @endif>@lang('tasks.Completed')</option>

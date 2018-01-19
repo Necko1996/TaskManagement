@@ -15,6 +15,11 @@ return [
 	'inProgress' => 'In Progress', // value 1
 	'Completed' => 'Completed', // value 2
 
+	// Flash Messages
+	'successAddTask' => 'Successfully added task',
+	'successUpdateTask' => 'Successfully updated task',
+	'successDeleteTask' => 'Successfully deleted task',
+
 	//Error
 	'errorStatus' => 'Error Status!',
 

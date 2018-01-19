@@ -53,3 +53,25 @@ html, body {
 {
   margin-bottom: 22px;
 }
+
+.m-r
+{
+  margin-right: 10px;
+}
+
+.disabled
+{
+  background-color: white !important;
+  font-weight: bold;
+  cursor: default !important;
+}
+
+#success-message
+{
+  margin: 0px;
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 10;
+  -webkit-backface-visibility: hidden;
+}
