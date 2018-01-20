@@ -1,4 +1,7 @@
 # TaskManagement
+<p align="center">
+ <a href="https://travis-ci.org/Necko1996/TaskManagement"><img src="https://travis-ci.org/Necko1996/TaskManagement.svg?branch=master" alt="Build Status"></a>
+</p>
 
 Simple project for Task Management. 
 
