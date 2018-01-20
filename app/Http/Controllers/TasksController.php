@@ -9,18 +9,29 @@ use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
+
+	/**
+	 * Directory of views.
+	 *
+	 * @var string
+	 */
     protected $viewDir = 'tasks';
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
     public function index()
     {
         $tasks = User::loggedUser()->tasks;
@@ -117,6 +128,7 @@ class TasksController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Task  $task
+     * @throws \Exception
      * @return \Illuminate\Http\Response
      */
     public function destroy(Task $task)
