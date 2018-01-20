@@ -13,8 +13,8 @@ class Controller extends BaseController
 
     protected $viewDir;
 
-	protected function view($view, $data = [])
-	{
-		return view($this->viewDir.".".$view, $data);
-	}
+    protected function view($view, $data = [])
+    {
+        return view($this->viewDir.'.'.$view, $data);
+    }
 }

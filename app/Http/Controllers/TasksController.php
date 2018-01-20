@@ -2,30 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use Lang;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
-use Lang;
 
 class TasksController extends Controller
 {
+    protected $viewDir = 'tasks';
 
-	protected $viewDir = 'tasks';
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
-    	$this->middleware('auth');
+        $this->middleware('auth');
     }
 
-	public function index()
+    public function index()
     {
-
-    	$tasks = User::loggedUser()->tasks;
+        $tasks = User::loggedUser()->tasks;
 
         return $this->view('index', compact('tasks'));
     }
@@ -48,20 +46,20 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-    	$this->validate($request,
-		    [
-		    	'title' => 'required|min:5',
-			    'body' => 'required|min:10',
-			    'status' => 'required|integer'
-		    ]);
+        $this->validate($request,
+            [
+                'title' => 'required|min:5',
+                'body' => 'required|min:10',
+                'status' => 'required|integer',
+            ]);
 
         Task::create(
-        	[
-        		'title' => $request->title,
-		        'body' => $request->body,
-		        'status' => $request->status,
-		        'user_id' => auth()->id()
-	        ]
+            [
+                'title' => $request->title,
+                'body' => $request->body,
+                'status' => $request->status,
+                'user_id' => auth()->id(),
+            ]
         );
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
@@ -88,7 +86,7 @@ class TasksController extends Controller
      */
     public function edit(Task $task)
     {
-		return $this->view('edit', compact('task'));
+        return $this->view('edit', compact('task'));
     }
 
     /**
@@ -100,19 +98,19 @@ class TasksController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-	    $this->validate($request,
-		    [
-			    'title' => 'required|min:5',
-			    'body' => 'required|min:10',
-			    'status' => 'required|integer'
-		    ]
-	    );
+        $this->validate($request,
+            [
+                'title' => 'required|min:5',
+                'body' => 'required|min:10',
+                'status' => 'required|integer',
+            ]
+        );
 
-	    $task->update($request->all());
+        $task->update($request->all());
 
-	    session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
+        session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
 
-	    return redirect()->route('tasks');
+        return redirect()->route('tasks');
     }
 
     /**
@@ -125,8 +123,8 @@ class TasksController extends Controller
     {
         $task->delete();
 
-	    session()->flash('success-message', Lang::get('tasks.successDeleteTask'));
+        session()->flash('success-message', Lang::get('tasks.successDeleteTask'));
 
-	    return redirect()->route('tasks');
+        return redirect()->route('tasks');
     }
 }
