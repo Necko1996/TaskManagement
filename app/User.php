@@ -27,15 +27,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-	//Get all tasks for user
-	public function tasks()
-	{
-		return $this->hasMany(Task::class);
-	}
+    //Get all tasks for user
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 
-	//Get user who is logged in
-	public static function loggedUser()
-	{
-		return static::find(auth()->id());
-	}
+    //Get user who is logged in
+    public static function loggedUser()
+    {
+        return static::find(auth()->id());
+    }
 }
