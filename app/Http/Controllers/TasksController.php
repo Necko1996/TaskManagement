@@ -9,29 +9,28 @@ use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
-
-	/**
-	 * Directory of views.
-	 *
-	 * @var string
-	 */
+    /**
+     * Directory of views.
+     *
+     * @var string
+     */
     protected $viewDir = 'tasks';
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $tasks = User::loggedUser()->tasks;
