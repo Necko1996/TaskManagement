@@ -9,7 +9,7 @@ class ExampleTest extends TestCase
 {
     /**
      * A basic test example.
-     * This is a StyleCI test
+     * This is a StyleCI test.
      *
      * @return void
      */
