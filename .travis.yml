@@ -1,16 +1,15 @@
 language: php
 
 php:
-  - 7.0
   - 7.1
   - 7.2
-  - hhvm
 
 before_script:
   - cp .env.travis .env
-  - mysql -e 'CREATE DATABASE taskmanagement;'
   - composer self-update
   - composer install --no-interaction
+  - composer update
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS taskmanagement;'
   - php artisan key:generate
   - php artisan migrate
 
