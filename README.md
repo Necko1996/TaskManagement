@@ -4,6 +4,7 @@
 <p align="center">
  <a href="https://travis-ci.org/Necko1996/TaskManagement"><img src="https://travis-ci.org/Necko1996/TaskManagement.svg?branch=master" alt="Build Status"></a>
  <a href="https://codeclimate.com/github/Necko1996/TaskManagement/maintainability"><img src="https://api.codeclimate.com/v1/badges/75819705320bd5ce426e/maintainability" /></a>
+ <a href="https://styleci.io/repos/116851881"><img src="https://styleci.io/repos/116851881/shield" /></a>
 </p>
 
 Simple project for Task Management. 
