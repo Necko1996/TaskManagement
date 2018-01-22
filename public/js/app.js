@@ -963,7 +963,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
@@ -993,7 +993,7 @@ var app = new Vue({
   el: '#app'
 });
 
-__webpack_require__(46);
+__webpack_require__(42);
 
 /***/ }),
 /* 11 */
@@ -43009,20 +43009,17 @@ if (false) {
 /* 42 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */
-/***/ (function(module, exports) {
-
 $(document).ready(function () {
    setTimeout(function () {
       $('#success-message').fadeOut("slow");
    }, 3000);
 });
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

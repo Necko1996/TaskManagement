@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
+     * Only auth users can see.
      *
      * @return void
      */

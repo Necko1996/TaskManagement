@@ -49,7 +49,7 @@
 
 
                         <h4 >@lang('tasks.Description'):</h4>
-                        {{ $task->body }}
+                        {{ $task->description }}
 
                         <hr>
 

@@ -27,13 +27,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //Get all tasks for user
+    /**
+     * Get all tasks.
+     *
+     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     */
     public function tasks()
     {
         return $this->hasMany(Task::class);
     }
 
-    //Get user who is logged in
+    /**
+     * Get logged user.
+     *
+     * @return  \App\User
+     */
     public static function loggedUser()
     {
         return static::find(auth()->id());

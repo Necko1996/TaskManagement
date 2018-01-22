@@ -32,15 +32,15 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                                <label for="body" class="col-md-4 control-label">@lang('tasks.Description')</label>
+                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                <label for="description" class="col-md-4 control-label">@lang('tasks.Description')</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="body" class="form-control" name="body" required>{{ $task->body }}</textarea>
+                                    <textarea id="description" class="form-control" name="description" required>{{ $task->description }}</textarea>
 
-                                    @if ($errors->has('body'))
+                                    @if ($errors->has('description'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('body') }}</strong>
+                                        <strong>{{ $errors->first('description') }}</strong>
                                     </span>
                                     @endif
                                 </div>

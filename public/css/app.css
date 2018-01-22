@@ -8422,7 +8422,7 @@ body {
   cursor: default !important;
 }
 
-#success-message {
+.success-message {
   margin: 0px;
   position: fixed;
   bottom: 22px;

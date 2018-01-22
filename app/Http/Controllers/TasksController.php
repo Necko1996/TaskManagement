@@ -18,6 +18,7 @@ class TasksController extends Controller
 
     /**
      * Create a new controller instance.
+     * Only auth users can see.
      *
      * @return void
      */
@@ -59,14 +60,14 @@ class TasksController extends Controller
         $this->validate($request,
             [
                 'title' => 'required|min:5',
-                'body' => 'required|min:10',
+                'description' => 'required|min:10',
                 'status' => 'required|integer',
             ]);
 
         Task::create(
             [
                 'title' => $request->title,
-                'body' => $request->body,
+                'description' => $request->description,
                 'status' => $request->status,
                 'user_id' => auth()->id(),
             ]
@@ -111,7 +112,7 @@ class TasksController extends Controller
         $this->validate($request,
             [
                 'title' => 'required|min:5',
-                'body' => 'required|min:10',
+                'description' => 'required|min:10',
                 'status' => 'required|integer',
             ]
         );
