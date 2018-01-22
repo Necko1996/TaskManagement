@@ -62,6 +62,7 @@ class TasksController extends Controller
                 'title' => 'required|min:5',
                 'description' => 'required|min:10',
                 'status' => 'required|integer',
+                'priority' => 'required|integer',
             ]);
 
         Task::create(
@@ -69,6 +70,7 @@ class TasksController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
+                'priority' => $request->priority,
                 'user_id' => auth()->id(),
             ]
         );
@@ -114,6 +116,7 @@ class TasksController extends Controller
                 'title' => 'required|min:5',
                 'description' => 'required|min:10',
                 'status' => 'required|integer',
+                'priority' => 'required|integer',
             ]
         );
 

@@ -7,6 +7,7 @@ return [
     'Title' => 'Title',
     'Status' => 'Status',
     'Description' => 'Description',
+    'Priority' => 'Priority',
     'Created' => 'Created',
     'Updated' => 'Updated',
 
@@ -15,6 +16,11 @@ return [
     'inProgress' => 'In Progress', // value 1
     'Completed' => 'Completed', // value 2
 
+    // Priority select options (to all)
+    'priorityLow' => 'Low', // value 0
+    'priorityNormal' => 'Normal', // value 1
+    'priorityHigh' => 'High', // value 2
+
     // Flash Messages
     'successAddTask' => 'Successfully added task',
     'successUpdateTask' => 'Successfully updated task',
@@ -22,6 +28,7 @@ return [
 
     //Error
     'errorStatus' => 'Error Status!',
+    'errorPriority' => 'Error Priority!',
 
     //// View(tasks.index)
     'noneTasks' => 'There is no tasks at this moment for you!',

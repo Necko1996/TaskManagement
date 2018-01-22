@@ -63,6 +63,13 @@
                             </li>
 
                             <li class="list-group-item justify-content-between">
+                                @lang('tasks.Priority'):
+                                <span class="pull-right">
+                                    @include('tasks.components.priority-label')
+                                </span>
+                            </li>
+
+                            <li class="list-group-item justify-content-between">
                                 @lang('tasks.Created'):
                                 <span class="label label-default pull-right">{{ $task->created_at->toDateString() }}</span>
                             </li>

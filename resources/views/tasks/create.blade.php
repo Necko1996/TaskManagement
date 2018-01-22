@@ -49,7 +49,7 @@
                                 <label for="status" class="col-md-4 control-label">@lang('tasks.Status')</label>
 
                                 <div class="col-md-6">
-                                    <select id="status" type="password" class="form-control" name="status" required>
+                                    <select id="status" class="form-control" name="status" required>
                                         <option></option>
                                         <option value="0">@lang('tasks.notActive')</option>
                                         <option value="1">@lang('tasks.inProgress')</option>
@@ -59,6 +59,25 @@
                                     @if ($errors->has('status'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('status') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('priority') ? ' has-error' : '' }}">
+                                <label for="priority" class="col-md-4 control-label">@lang('tasks.Priority')</label>
+
+                                <div class="col-md-6">
+                                    <select id="priority" class="form-control" name="priority" required>
+                                        <option></option>
+                                        <option value="0">@lang('tasks.priorityLow')</option>
+                                        <option value="1">@lang('tasks.priorityNormal')</option>
+                                        <option value="2">@lang('tasks.priorityHigh')</option>
+                                    </select>
+
+                                    @if ($errors->has('priority'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('priority') }}</strong>
                                     </span>
                                     @endif
                                 </div>

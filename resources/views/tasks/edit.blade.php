@@ -64,6 +64,24 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('priority') ? ' has-error' : '' }}">
+                                <label for="priority" class="col-md-4 control-label">@lang('tasks.Priority')</label>
+
+                                <div class="col-md-6">
+                                    <select id="priority" class="form-control" name="priority" required>
+                                        <option value="0" @if($task->priority == 0) selected @endif>@lang('tasks.priorityLow')</option>
+                                        <option value="1" @if($task->priority == 1) selected @endif>@lang('tasks.priorityNormal')</option>
+                                        <option value="2" @if($task->priority == 2) selected @endif>@lang('tasks.priorityHigh')</option>
+                                    </select>
+
+                                    @if ($errors->has('priority'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('priority') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">

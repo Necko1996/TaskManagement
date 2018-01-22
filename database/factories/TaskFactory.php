@@ -11,5 +11,6 @@ $factory->define(App\Task::class, function (Faker $faker) {
         'title' => $faker->sentence,
         'description' => $faker->text,
         'status' => $faker->numberBetween(0, 2),
+        'priority' => $faker->numberBetween(0, 2),
     ];
 });
