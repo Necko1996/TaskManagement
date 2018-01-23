@@ -28,13 +28,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get all tasks.
+     * Get all tasks sorted.
      *
      * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
      */
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Task::class)->sortedStatus();
     }
 
     /**

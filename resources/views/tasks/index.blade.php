@@ -4,11 +4,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 m-b">
 
+                <div class="clearfix"></div>
                 @if(!empty($tasks))
-
-                    <div class="clearfix"></div>
 
                     <div class="mx-auto pull-right m-b">
                         <a href="{{ url('/tasks/create') }}">

@@ -9,7 +9,7 @@ $factory->define(App\Task::class, function (Faker $faker) {
             return factory(User::class)->create()->id;
         },
         'title' => $faker->sentence,
-        'description' => $faker->text,
+        'description' => $faker->paragraph,
         'status' => $faker->numberBetween(0, 2),
         'priority' => $faker->numberBetween(0, 2),
     ];
