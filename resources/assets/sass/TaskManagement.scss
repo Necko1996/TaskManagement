@@ -75,3 +75,8 @@ html, body {
   z-index: 10;
   -webkit-backface-visibility: hidden;
 }
+
+.completed
+{
+  text-decoration: line-through;
+}

@@ -25,8 +25,8 @@
 
                             @foreach($tasks as $task)
                                 <a href="{{ url('/tasks/' . $task->id) }}" class="col-sm-12 col-xs-12 list-group-item list-group-item-action">
-                                    <span class="col-sm-2 col-xs-2" >{{ $task->id  }}</span>
-                                    <span class="col-sm-8 col-xs-7" >{{ $task->title  }}</span>
+                                    <span class="col-sm-2 col-xs-2 @if($task->status == 2) completed @endif" >{{ $task->id  }}</span>
+                                    <span class="col-sm-8 col-xs-7 @if($task->status == 2) completed @endif" >{{ $task->title  }}</span>
                                     <span class="col-sm-2 col-xs-3" >@include('tasks.components.select-label')</span>
                                 </a>
                             @endforeach

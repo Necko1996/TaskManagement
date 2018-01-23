@@ -8431,3 +8431,7 @@ body {
   -webkit-backface-visibility: hidden;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
