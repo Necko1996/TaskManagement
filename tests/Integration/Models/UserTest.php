@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Integration;
 
 use App\Task;
 use App\User;

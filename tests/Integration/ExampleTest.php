@@ -1,12 +1,11 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Integration;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class TaskTest extends TestCase
+class ExampleTest extends TestCase
 {
     /**
      * A basic test example.
@@ -15,6 +14,8 @@ class TaskTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
     }
 }
