@@ -2,7 +2,6 @@
 
 namespace Tests\Integration;
 
-
 use App\Task;
 use App\User;
 use Tests\TestCase;
