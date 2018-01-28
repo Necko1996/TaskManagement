@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Lang;
 use App\Task;
 use App\User;
@@ -34,7 +35,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = User::loggedUser()->tasks;
+        $tasks = Task::get();
 
         return $this->view('index', compact('tasks'));
     }

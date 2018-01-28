@@ -26,24 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * Get all tasks sorted.
-     *
-     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
-     */
-    public function tasks()
-    {
-        return $this->hasMany(Task::class)->sortedStatus();
-    }
-
-    /**
-     * Get logged user.
-     *
-     * @return  \App\User
-     */
-    public static function loggedUser()
-    {
-        return static::find(auth()->id());
-    }
 }
