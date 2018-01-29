@@ -1,8 +1,8 @@
 <?php
 
+use App\Card;
 use App\User;
 use App\Board;
-use App\Card;
 use Faker\Generator as Faker;
 
 $factory->define(App\Task::class, function (Faker $faker) {

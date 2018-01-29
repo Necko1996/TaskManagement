@@ -2,10 +2,10 @@
 
 namespace Tests\Integration;
 
-use App\Board;
 use App\Card;
 use App\Task;
 use App\User;
+use App\Board;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -75,7 +75,6 @@ class BoardTest extends TestCase
         $sortedCards = $cards->sortBy('status')->pluck('id');
 
         $this->assertEquals($sortedCards, $cards->pluck('id'));
-
     }
 
     /**
