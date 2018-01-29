@@ -1,13 +1,15 @@
 <?php
 
 use App\User;
+use App\Board;
+use App\Card;
 use Faker\Generator as Faker;
 
 $factory->define(App\Task::class, function (Faker $faker) {
     return [
-        'user_id' => function () {
-            return factory(User::class)->create()->id;
-        },
+        'user_id' => factory(User::class)->create()->id,
+        'board_id' => factory(Board::class)->create()->id,
+        'card_id' => factory(Card::class)->create()->id,
         'title' => $faker->sentence,
         'description' => $faker->paragraph,
         'status' => $faker->numberBetween(0, 2),
