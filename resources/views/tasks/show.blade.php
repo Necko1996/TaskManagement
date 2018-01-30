@@ -17,14 +17,14 @@
                         </button>
                     </a>
 
-                    <a href="{{ url('/tasks/'. $task->id . '/edit') }}">
+                    <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">
                         <button class="btn btn-primary">
                             @lang('tasks.editTask') <i class="fas fa-pencil-alt"></i>
                         </button>
                     </a>
                 </div>
 
-                <form id="task-delete-form" action="{{ url('/tasks/' . $task->id ) }}" method="POST" style="display: none">
+                <form id="task-delete-form" action="{{ route('tasks.destroy', ['task' => $task->id]) }}" method="POST" style="display: none">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                 </form>

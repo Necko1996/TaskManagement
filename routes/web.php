@@ -20,8 +20,14 @@ Auth::routes();
 //Home routes
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Board routes
+Route::resource('boards', 'BoardController');
+
+//Card routes
+Route::resource('cards', 'CardController');
+
 //Task routes
-Route::get('/tasks', 'TasksController@index')->name('tasks');
+Route::get('/tasks', 'TasksController@index')->name('tasks.index');
 Route::get('/tasks/create', 'TasksController@create')->name('tasks.create');
 Route::post('/tasks', 'TasksController@store')->name('tasks.store');
 Route::get('/tasks/{task}', 'TasksController@show')->name('tasks.show');

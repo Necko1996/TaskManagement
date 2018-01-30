@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ url('/tasks/' . $task->id) }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('tasks.update', ['task' => $task->id]) }}">
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
 

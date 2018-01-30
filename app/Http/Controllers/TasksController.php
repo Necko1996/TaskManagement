@@ -77,7 +77,7 @@ class TasksController extends Controller
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
 
-        return redirect()->route('tasks');
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -124,7 +124,7 @@ class TasksController extends Controller
 
         session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
 
-        return redirect()->route('tasks');
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -140,6 +140,6 @@ class TasksController extends Controller
 
         session()->flash('success-message', Lang::get('tasks.successDeleteTask'));
 
-        return redirect()->route('tasks');
+        return redirect()->route('tasks.index');
     }
 }

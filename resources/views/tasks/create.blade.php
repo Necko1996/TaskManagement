@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('tasks') }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('tasks.store') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">

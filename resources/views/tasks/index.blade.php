@@ -10,7 +10,7 @@
                 @if(!empty($tasks))
 
                     <div class="mx-auto pull-right m-b">
-                        <a href="{{ url('/tasks/create') }}">
+                        <a href="{{ route('tasks.create') }}">
                             <button class="btn btn-primary">@lang('tasks.createTask') </button>
                         </a>
                     </div>
@@ -24,7 +24,7 @@
                             </a>
 
                             @foreach($tasks as $task)
-                                <a href="{{ url('/tasks/' . $task->id) }}" class="col-sm-12 col-xs-12 list-group-item list-group-item-action">
+                                <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="col-sm-12 col-xs-12 list-group-item list-group-item-action">
                                     <span class="col-sm-2 col-xs-2 @if($task->status == 2) completed @endif" >{{ $task->id  }}</span>
                                     <span class="col-sm-8 col-xs-7 @if($task->status == 2) completed @endif" >{{ $task->title  }}</span>
                                     <span class="col-sm-2 col-xs-3" >@include('tasks.components.select-label')</span>
@@ -39,7 +39,7 @@
                     <h1 class="text-center m-b">@lang('tasks.noneTasks')</h1>
 
                     <div class="col-md-12 text-center">
-                        <a href="{{ url('/tasks/create') }}">
+                        <a href="{{ route('tasks.create') }}">
                             <button class="btn btn-primary">@lang('tasks.createFirstTask')</button>
                         </a>
                     </div>
