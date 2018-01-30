@@ -59,6 +59,14 @@ html, body {
   margin-right: 10px;
 }
 
+.m-l-22
+{
+  margin-left: 22px !important;
+  @media (max-width: $screen-xs-max) {
+    margin-left: 0px !important;
+  }
+}
+
 .disabled
 {
   background-color: white !important;
@@ -79,4 +87,28 @@ html, body {
 .completed
 {
   text-decoration: line-through;
+}
+
+.hover
+{
+  color: $text-color;
+  text-decoration: none;
+
+  @media (max-width: $screen-xs-max) {
+    color: $text-color;
+    text-decoration: none !important;
+  }
+}
+
+.hover .panel:hover
+{
+  text-decoration: none;
+  color: #555;
+  background-color: #f5f5f5;
+
+  @media (max-width: $screen-xs-max) {
+    text-decoration: none !important;
+    color: #555;
+    background-color: #f5f5f5;
+  }
 }

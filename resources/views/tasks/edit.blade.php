@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
 
                 <div class="mx-auto pull-left m-b">
-                    @include('tasks.components.back-button')
+                    @include('components.back-button')
                 </div>
 
                 <div class="clearfix"></div>

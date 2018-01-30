@@ -86,11 +86,28 @@ class BoardTest extends TestCase
     public function testACardCanHaveManyTasks()
     {
         $board = factory(Board::class)->create(['user_id' => $this->user->id]);
-        $cards = factory(Card::class)->create(['board_id' => $board->id]);
-        factory(Task::class, 3)->create(['card_id' => $cards->id, 'board_id' => $board->id]);
+        $card = factory(Card::class)->create(['board_id' => $board->id]);
+        factory(Task::class, 3)->create(['card_id' => $card->id, 'board_id' => $board->id]);
 
-        $getTasks = Board::getTask($board->id, $cards->id);
+        $getTasks = Board::getTask($board->id, $card->id);
 
         $this->assertCount(3, $getTasks);
+    }
+
+    /**
+     * Test:
+     * Create basic cards.
+     *
+     * @return void
+     */
+    public function testCreateBaseRecords()
+    {
+        $board = factory(Board::class)->create(['user_id' => $this->user->id]);
+
+        Board::createBase($board);
+
+        $getCards = Board::getCards($board->id);
+
+        $this->assertCount(3, $getCards);
     }
 }

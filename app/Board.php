@@ -35,9 +35,28 @@ class Board extends Model
         return static::get()->find($boardId)->cards;
     }
 
+    /**
+     * Get all tasks.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public static function getTask($boardId, $cardId)
     {
         return static::get()->find($boardId)->tasks->where('card_id', '=', $cardId);
+    }
+
+    /**
+     * Create basic cards template.
+     *
+     * @return void
+     */
+    public static function createBase($board)
+    {
+        $board->cards()->saveMany([
+            new Card(['name' => "To Do", 'status' => 0,]),
+            new Card(['name' => "In Progress", 'status' => 1,]),
+            new Card(['name' => "Done", 'status' => 2,]),
+        ]);
     }
 
     /**

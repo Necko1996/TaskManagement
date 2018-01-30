@@ -8416,6 +8416,16 @@ body {
   margin-right: 10px;
 }
 
+.m-l-22 {
+  margin-left: 22px !important;
+}
+
+@media (max-width: 767px) {
+  .m-l-22 {
+    margin-left: 0px !important;
+  }
+}
+
 .disabled {
   background-color: white !important;
   font-weight: bold;
@@ -8433,5 +8443,31 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+.hover {
+  color: #636b6f;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .hover {
+    color: #636b6f;
+    text-decoration: none !important;
+  }
+}
+
+.hover .panel:hover {
+  text-decoration: none;
+  color: #555;
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 767px) {
+  .hover .panel:hover {
+    text-decoration: none !important;
+    color: #555;
+    background-color: #f5f5f5;
+  }
 }
 

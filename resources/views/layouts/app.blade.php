@@ -38,6 +38,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="links nav navbar-nav">
                         <li><a href="{{ route('home') }}">Home</a></li>
+                        {{--<li><a href="{{ route('boards.index') }}">Boards</a></li>--}}
                         <li><a href="{{ route('tasks.index') }}">Tasks</a></li>
                     </ul>
 
@@ -73,7 +74,7 @@
             </div>
         </nav>
 
-        @include('tasks.components.success-alert')
+        @include('components.success-alert')
 
         @yield('content')
     </div>

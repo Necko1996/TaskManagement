@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'board_id', 'name', 'status',
     ];

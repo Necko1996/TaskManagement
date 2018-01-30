@@ -2,7 +2,7 @@
 
 return [
 
-    // Table
+    // Global variables
     'ID' => 'ID',
     'Title' => 'Title',
     'Status' => 'Status',
@@ -42,6 +42,7 @@ return [
     //// View(tasks.show)
     'titlePanelShow' => 'Show Task',
     'editTask' => 'Edit Task',
+    'deleteTask' => 'Delete Task',
 
     //// View(tasks.edit)
     'titlePanelEdit' => 'Edit Task',

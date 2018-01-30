@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Lang;
+use App\Card;
 use App\Board;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,9 @@ class BoardController extends Controller
      */
     public function index()
     {
-        //
+        $boards = Board::get();
+
+        return $this->view('index', compact('boards'));
     }
 
     /**
@@ -42,7 +46,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        return $this->view('create');
     }
 
     /**
@@ -53,7 +57,23 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+            [
+                'name' => 'required|min:3',
+            ]);
+
+        $board = Board::create(
+            [
+                'name' => $request->name,
+                'user_id' => auth()->id(),
+            ]
+        );
+
+        Board::createBase($board);
+
+        session()->flash('success-message', Lang::get('boards.successAddBoard'));
+
+        return redirect()->route('boards.index');
     }
 
     /**
@@ -64,7 +84,8 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        //
+        $cards = Board::getCards($board->id);
+        return $this->view('show', compact('board', 'cards'));
     }
 
     /**
@@ -75,7 +96,7 @@ class BoardController extends Controller
      */
     public function edit(Board $board)
     {
-        //
+        return $this->view('edit', compact('board'));
     }
 
     /**
@@ -87,17 +108,32 @@ class BoardController extends Controller
      */
     public function update(Request $request, Board $board)
     {
-        //
+        $this->validate($request,
+            [
+                'name' => 'required|min:3',
+            ]
+        );
+
+        $board->update($request->all());
+
+        session()->flash('success-message', Lang::get('boards.successUpdateBoard'));
+
+        return redirect()->route('boards.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Board  $board
+     * @throws \Exception
      * @return \Illuminate\Http\Response
      */
     public function destroy(Board $board)
     {
-        //
+        $board->delete();
+
+        session()->flash('success-message', Lang::get('boards.successDeleteBoard'));
+
+        return redirect()->route('boards.index');
     }
 }

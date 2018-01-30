@@ -6,14 +6,14 @@
             <div class="col-md-8 col-md-offset-2">
 
                 <div class="mx-auto pull-left m-b">
-                    @include('tasks.components.back-button')
+                    @include('components.back-button')
                 </div>
 
                 <div class="mx-auto pull-right m-b">
 
                     <a href="#" onclick="document.getElementById('task-delete-form').submit()" style="margin-left: 10px">
                         <button class="btn btn-danger">
-                            Delete Task <i class="fas fa-trash"></i>
+                            @lang('tasks.deleteTask') <i class="fas fa-trash"></i>
                         </button>
                     </a>
 
