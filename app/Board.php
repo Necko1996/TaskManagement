@@ -53,9 +53,9 @@ class Board extends Model
     public static function createBase($board)
     {
         $board->cards()->saveMany([
-            new Card(['name' => "To Do", 'status' => 0,]),
-            new Card(['name' => "In Progress", 'status' => 1,]),
-            new Card(['name' => "Done", 'status' => 2,]),
+            new Card(['name' => 'To Do', 'status' => 0]),
+            new Card(['name' => 'In Progress', 'status' => 1]),
+            new Card(['name' => 'Done', 'status' => 2]),
         ]);
     }
 
