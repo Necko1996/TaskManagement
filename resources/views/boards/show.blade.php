@@ -32,7 +32,7 @@
                 {{-- Fixing bug with .Pull-Right and .Panel --}}
                 <div class="clearfix"></div>
 
-                @foreach($cards as $card)
+                @foreach($board->cards as $card)
                     <div class="panel panel-default">
 
                         <div class="panel-heading">
@@ -47,7 +47,9 @@
 
                         <div class="panel-body">
 
-
+                            @foreach($card->tasks as $task)
+                                {{ $task->name }}
+                            @endforeach
 
                         </div>
 

@@ -16,6 +16,16 @@ class Card extends Model
     ];
 
     /**
+     * Get all tasks sorted.
+     *
+     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->sortedStatus();
+    }
+
+    /**
      * Scope a query to order by status.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

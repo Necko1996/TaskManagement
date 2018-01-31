@@ -26,6 +26,16 @@ class Board extends Model
     }
 
     /**
+     * Get board with related cards who have related tasks.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public static function getAll($boardModel)
+    {
+        return static::with('Cards.Tasks')->find($boardModel)->first();
+    }
+
+    /**
      * Get all cards.
      *
      * @return \Illuminate\Database\Eloquent\Collection

@@ -84,9 +84,9 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        $cards = Board::getCards($board->id);
+        $board = Board::getAll($board);
 
-        return $this->view('show', compact('board', 'cards'));
+        return $this->view('show', compact('board'));
     }
 
     /**
