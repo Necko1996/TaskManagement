@@ -25,12 +25,8 @@ Route::resource('boards', 'BoardController');
 
 //Card routes
 Route::resource('cards', 'CardController');
+Route::get('/{board}/cards/create', 'CardController@create')->name('boards.cards.create');
 
 //Task routes
-Route::get('/tasks', 'TasksController@index')->name('tasks.index');
-Route::get('/tasks/create', 'TasksController@create')->name('tasks.create');
-Route::post('/tasks', 'TasksController@store')->name('tasks.store');
-Route::get('/tasks/{task}', 'TasksController@show')->name('tasks.show');
-Route::get('/tasks/{task}/edit', 'TasksController@edit')->name('tasks.edit');
-Route::patch('/tasks/{task}', 'TasksController@update')->name('tasks.update');
-Route::delete('/tasks/{task}', 'TasksController@destroy')->name('tasks.destroy');
+Route::resource('tasks', 'TasksController');
+Route::get('/{board}/{card}/tasks/create', 'TasksController@create')->name('boards.cards.tasks.create');

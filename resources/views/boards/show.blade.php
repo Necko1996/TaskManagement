@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
@@ -28,34 +28,72 @@
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                 </form>
-
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
                 {{-- Fixing bug with .Pull-Right and .Panel --}}
                 <div class="clearfix"></div>
 
                 @foreach($board->cards as $card)
-                    <div class="panel panel-default">
+                    <div class="panel panel-default col-sm-2 m-l-22">
 
                         <div class="panel-heading">
 
-                            {{ $card->name }}
+                            <div class="pull-left"><h5>{{ $card->name }}</h5></div>
 
                             <div class="pull-right">
+                                <a href="#" onclick="document.getElementById('card-delete-form').submit()" style="margin-left: 10px">
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </a>
 
+                                <a href="{{ route('cards.edit', ['card' => $card->id]) }}">
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                </a>
+
+                                <form id="card-delete-form" action="{{ route('cards.destroy', ['card' => $card->id]) }}" method="POST" style="display: none">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                </form>
                             </div>
+
+                            <div class="clearfix"></div>
 
                         </div>
 
                         <div class="panel-body">
 
-                            @foreach($card->tasks as $task)
-                                {{ $task->name }}
-                            @endforeach
+                            <div class="list-group">
+                                @foreach($card->tasks as $task)
+                                    <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="col-sm-12 col-xs-12 list-group-item list-group-item-action">
+                                        <span class="col-sm-8 col-xs-7 @if($task->status == 2) completed @endif" >{{ $task->title  }}</span>
+                                        <span class="col-sm-2 col-xs-3" >@include('tasks.components.select-label')</span>
+                                    </a>
+                                @endforeach
+                            </div>
+
+                            <a href="{{ route('boards.cards.tasks.create', ['board' => $board->id, 'card' => $card->id]) }}">
+                                <button class="btn btn-default col-sm-12 m-t-22">
+                                    <h5> @lang('tasks.createTask') </h5>
+                                </button>
+                            </a>
 
                         </div>
 
                     </div>
                 @endforeach
+
+                <a href="{{ route('boards.cards.create', ['board' => $board->id]) }}">
+                    <button class="btn btn-default col-sm-2 m-l-22">
+                        <h5> @lang('cards.createCard') </h5>
+                    </button>
+                </a>
+
             </div>
-        </div>
     </div>
 @endsection

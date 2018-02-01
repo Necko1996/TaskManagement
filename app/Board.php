@@ -32,7 +32,7 @@ class Board extends Model
      */
     public static function getAll($boardModel)
     {
-        return static::with('Cards.Tasks')->find($boardModel)->first();
+        return static::with('Cards.Tasks')->find($boardModel->id);
     }
 
     /**

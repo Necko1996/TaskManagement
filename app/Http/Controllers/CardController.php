@@ -2,11 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Lang;
 use App\Card;
+use App\Board;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
+    /**
+     * Directory of views.
+     *
+     * @var string
+     */
+    protected $viewDir = 'cards';
+
+    /**
+     * Create a new controller instance.
+     * Only auth users can see.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +42,9 @@ class CardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Board $board)
     {
-        //
+        return $this->view('create', compact('board'));
     }
 
     /**
@@ -35,7 +55,24 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+            [
+                'name' => 'required|min:5',
+                'status' => 'required|integer',
+                'board_id' => 'required|integer',
+            ]);
+
+        Card::create(
+            [
+                'name' => $request->name,
+                'status' => $request->status,
+                'board_id' => $request->board_id,
+            ]
+        );
+
+        session()->flash('success-message', Lang::get('cards.successAddTask'));
+
+        return redirect()->route('boards.show', ['board' => $request->board_id ]);
     }
 
     /**
@@ -57,7 +94,7 @@ class CardController extends Controller
      */
     public function edit(Card $card)
     {
-        //
+        return $this->view('edit', compact('card'));
     }
 
     /**
@@ -69,17 +106,30 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        //
+        $this->validate($request,
+            [
+                'name' => 'required|min:2',
+                'status' => 'required|integer',
+            ]
+        );
+
+        $card->update($request->all());
+
+        session()->flash('success-message', Lang::get('cards.successUpdateTask'));
+
+        return redirect()->route('boards.show', ['board' => $card->board_id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Card  $card
+     * @throws \Exception
      * @return \Illuminate\Http\Response
      */
     public function destroy(Card $card)
     {
-        //
+        $card->delete();
+        return redirect()->route('boards.show', ['board' => $card->board_id]);
     }
 }

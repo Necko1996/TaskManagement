@@ -67,6 +67,14 @@ html, body {
   }
 }
 
+.m-t-22
+{
+  margin-top: 22px !important;
+  @media (max-width: $screen-xs-max) {
+    margin-top: 0px !important;
+  }
+}
+
 .disabled
 {
   background-color: white !important;

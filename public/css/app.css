@@ -8426,6 +8426,16 @@ body {
   }
 }
 
+.m-t-22 {
+  margin-top: 22px !important;
+}
+
+@media (max-width: 767px) {
+  .m-t-22 {
+    margin-top: 0px !important;
+  }
+}
+
 .disabled {
   background-color: white !important;
   font-weight: bold;

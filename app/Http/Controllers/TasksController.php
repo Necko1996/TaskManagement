@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Lang;
+use App\Card;
 use App\Task;
+use App\Board;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -43,9 +46,9 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Board $board, Card $card)
     {
-        return $this->view('create');
+        return $this->view('create', compact('board', 'card'));
     }
 
     /**
@@ -62,6 +65,8 @@ class TasksController extends Controller
                 'description' => 'required|min:10',
                 'status' => 'required|integer',
                 'priority' => 'required|integer',
+                'board_id' => 'required|integer',
+                'card_id' => 'required|integer',
             ]);
 
         Task::create(
@@ -70,13 +75,15 @@ class TasksController extends Controller
                 'description' => $request->description,
                 'status' => $request->status,
                 'priority' => $request->priority,
+                'board_id' => $request->board_id,
+                'card_id' => $request->card_id,
                 'user_id' => auth()->id(),
             ]
         );
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('boards.show', ['board' => $request->board_id]);
     }
 
     /**
@@ -123,7 +130,7 @@ class TasksController extends Controller
 
         session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('boards.show', ['board' => $task->board_id]);
     }
 
     /**
@@ -139,6 +146,6 @@ class TasksController extends Controller
 
         session()->flash('success-message', Lang::get('tasks.successDeleteTask'));
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('boards.show', ['board' => $task->board_id]);
     }
 }

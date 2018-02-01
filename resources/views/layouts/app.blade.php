@@ -38,8 +38,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="links nav navbar-nav">
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        {{--<li><a href="{{ route('boards.index') }}">Boards</a></li>--}}
-                        <li><a href="{{ route('tasks.index') }}">Tasks</a></li>
+                        <li><a href="{{ route('boards.index') }}">Boards</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

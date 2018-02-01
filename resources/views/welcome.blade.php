@@ -18,8 +18,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ route('home') }}">Home</a>
-{{--                        <a href="{{ route('boards.index') }}">Boards</a>--}}
-                        <a href="{{ route('tasks.index') }}">Tasks</a>
+                        <a href="{{ route('boards.index') }}">Boards</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
