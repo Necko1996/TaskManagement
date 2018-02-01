@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Lang;
 use App\Card;
 use App\Task;

@@ -72,7 +72,7 @@ class CardController extends Controller
 
         session()->flash('success-message', Lang::get('cards.successAddTask'));
 
-        return redirect()->route('boards.show', ['board' => $request->board_id ]);
+        return redirect()->route('boards.show', ['board' => $request->board_id]);
     }
 
     /**
@@ -130,6 +130,7 @@ class CardController extends Controller
     public function destroy(Card $card)
     {
         $card->delete();
+
         return redirect()->route('boards.show', ['board' => $card->board_id]);
     }
 }
