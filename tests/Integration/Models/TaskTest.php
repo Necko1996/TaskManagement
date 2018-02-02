@@ -42,7 +42,7 @@ class TaskTest extends TestCase
     /**
      * Test:
      * Get tasks for auth user.
-     * Tasks are sorted by status.
+     * Tasks are sorted by priority.
      *
      * @return void
      */
@@ -54,7 +54,7 @@ class TaskTest extends TestCase
 
         $this->assertCount(3, $tasks);
 
-        $sorted = $generatedTasks->sortBy('status')->pluck('id');
+        $sorted = $generatedTasks->sortByDesc('priority')->pluck('id');
 
         $this->assertEquals($sorted, $tasks->pluck('id'));
     }

@@ -5,16 +5,11 @@ return [
     // Global variables
     'ID' => 'ID',
     'Title' => 'Title',
-    'Status' => 'Status',
+    'Card' => 'Card',
     'Description' => 'Description',
     'Priority' => 'Priority',
     'Created' => 'Created',
     'Updated' => 'Updated',
-
-    // Status select options (to all)
-    'notActive' => 'Not Active', // value 0
-    'inProgress' => 'In Progress', // value 1
-    'Completed' => 'Completed', // value 2
 
     // Priority select options (to all)
     'priorityLow' => 'Low', // value 0
@@ -27,7 +22,6 @@ return [
     'successDeleteTask' => 'Successfully deleted task',
 
     //Error
-    'errorStatus' => 'Error Status!',
     'errorPriority' => 'Error Priority!',
 
     //// View(tasks.index)

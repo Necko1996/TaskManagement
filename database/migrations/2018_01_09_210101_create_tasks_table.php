@@ -20,7 +20,6 @@ class CreateTasksTable extends Migration
             $table->integer('board_id')->default(0);
             $table->string('title');
             $table->text('description');
-            $table->integer('status');
             $table->integer('priority');
             $table->timestamps();
         });

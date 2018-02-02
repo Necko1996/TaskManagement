@@ -51,19 +51,19 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                                <label for="status" class="col-md-4 control-label">@lang('tasks.Status')</label>
+                            <div class="form-group{{ $errors->has('card_id') ? ' has-error' : '' }}">
+                                <label for="card_id" class="col-md-4 control-label">@lang('tasks.Card')</label>
 
                                 <div class="col-md-6">
-                                    <select id="status" type="password" class="form-control" name="status" required>
-                                        <option value="0" @if($task->status == 0) selected @endif>@lang('tasks.notActive')</option>
-                                        <option value="1" @if($task->status == 1) selected @endif>@lang('tasks.inProgress')</option>
-                                        <option value="2" @if($task->status == 2) selected @endif>@lang('tasks.Completed')</option>
+                                    <select id="card_id" class="form-control" name="card_id" required>
+                                        @foreach($cards as $card)
+                                            <option value="{{ $card->id }}" @if($task->card_id == $card->id) selected @endif>{{ $card->name }}</option>
+                                        @endforeach
                                     </select>
 
-                                    @if ($errors->has('status'))
+                                    @if ($errors->has('card_id'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('status') }}</strong>
+                                        <strong>{{ $errors->first('card_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>

@@ -71,8 +71,8 @@
                             <div class="list-group">
                                 @foreach($card->tasks as $task)
                                     <a href="{{ route('tasks.show', ['task' => $task->id]) }}" class="col-sm-12 col-xs-12 list-group-item list-group-item-action">
-                                        <span class="col-sm-8 col-xs-7 @if($task->status == 2) completed @endif" >{{ $task->title  }}</span>
-                                        <span class="col-sm-2 col-xs-3" >@include('tasks.components.select-label')</span>
+                                        <span class="col-sm-8 col-xs-7" >{{ $task->title  }}</span>
+                                        <span class="col-sm-2 col-xs-3" >@include('tasks.components.priority-label')</span>
                                     </a>
                                 @endforeach
                             </div>

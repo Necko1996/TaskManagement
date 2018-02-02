@@ -23,7 +23,7 @@ class Task extends Model
      */
     public static function get()
     {
-        return static::forAuthUser()->sortedStatus()->get();
+        return static::forAuthUser()->sortedPriority()->get();
     }
 
     /**
@@ -43,8 +43,8 @@ class Task extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSortedStatus($query)
+    public function scopeSortedPriority($query)
     {
-        return $query->orderBy('status', 'asc');
+        return $query->orderBy('priority', 'desc');
     }
 }

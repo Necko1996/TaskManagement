@@ -8,7 +8,7 @@ use App\Task;
 use App\Board;
 use Illuminate\Http\Request;
 
-class TasksController extends Controller
+class TaskController extends Controller
 {
     /**
      * Directory of views.
@@ -93,7 +93,9 @@ class TasksController extends Controller
      */
     public function show(Task $task)
     {
-        return $this->view('show', compact('task'));
+        $cards = Board::getCards($task->board_id);
+
+        return $this->view('show', compact('task', 'cards'));
     }
 
     /**
@@ -104,7 +106,9 @@ class TasksController extends Controller
      */
     public function edit(Task $task)
     {
-        return $this->view('edit', compact('task'));
+        $cards = Board::getCards($task->board_id);
+
+        return $this->view('edit', compact('task', 'cards'));
     }
 
     /**
@@ -120,8 +124,8 @@ class TasksController extends Controller
             [
                 'title' => 'required|min:5',
                 'description' => 'required|min:10',
-                'status' => 'required|integer',
                 'priority' => 'required|integer',
+                'card_id' => 'required|integer',
             ]
         );
 

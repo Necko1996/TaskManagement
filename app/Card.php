@@ -22,7 +22,7 @@ class Card extends Model
      */
     public function tasks()
     {
-        return $this->hasMany(Task::class)->sortedStatus();
+        return $this->hasMany(Task::class)->sortedPriority();
     }
 
     /**

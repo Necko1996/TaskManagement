@@ -39,7 +39,7 @@
                         @lang('tasks.titlePanelShow')
 
                         <span class="pull-right">
-                            @include('tasks.components.select-label')
+                            @include('tasks.components.card-label')
                         </span>
 
                     </div>
@@ -57,9 +57,9 @@
                         <ul class="list-group">
 
                             <li class="list-group-item justify-content-between">
-                                @lang('tasks.Status'):
+                                @lang('tasks.Card'):
                                 <span class="pull-right">
-                                    @include('tasks.components.select-label')
+                                    @include('tasks.components.card-label')
                                 </span>
                             </li>
 
