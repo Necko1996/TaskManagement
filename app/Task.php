@@ -13,7 +13,7 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'status', 'user_id', 'priority', 'board_id', 'card_id',
+        'title', 'description', 'status', 'priority', 'board_id', 'card_id',
     ];
 
     /**
@@ -23,7 +23,7 @@ class Task extends Model
      */
     public static function get()
     {
-        return static::forAuthUser()->sortedPriority()->get();
+        return static::sortedPriority()->get();
     }
 
     /**

@@ -62,7 +62,6 @@ class TaskController extends Controller
             [
                 'title' => 'required|min:5',
                 'description' => 'required|min:10',
-                'status' => 'required|integer',
                 'priority' => 'required|integer',
                 'board_id' => 'required|integer',
                 'card_id' => 'required|integer',
@@ -72,7 +71,6 @@ class TaskController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'status' => $request->status,
                 'priority' => $request->priority,
                 'board_id' => $request->board_id,
                 'card_id' => $request->card_id,
