@@ -96,7 +96,7 @@ class BoardTest extends TestCase
 
     /**
      * Test:
-     * Get all records for board
+     * Get all records for board.
      *
      * @return void
      */
@@ -119,7 +119,6 @@ class BoardTest extends TestCase
         $this->assertCount(3, $getCard);
 
         for ($i = 0; $i < count($getCard); $i++) {
-
             $getTasks = $getAll->cards[$i]->tasks;
 
             $this->assertCount(5, $getTasks);
