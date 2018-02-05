@@ -96,6 +96,38 @@ class BoardTest extends TestCase
 
     /**
      * Test:
+     * Get all records for board
+     *
+     * @return void
+     */
+    public function testGetAllRecordsForBoard()
+    {
+        $board = factory(Board::class)->create(['user_id' => $this->user->id]);
+
+        Board::createBase($board);
+
+        $cards = Board::getCards($board->id);
+
+        foreach ($cards as $card) {
+            factory(Task::class, 5)->create(['card_id' => $card->id, 'board_id' => $board->id]);
+        }
+
+        $getAll = Board::getAll($board);
+
+        $getCard = $getAll->cards;
+
+        $this->assertCount(3, $getCard);
+
+        for ($i = 0; $i < count($getCard); $i++) {
+
+            $getTasks = $getAll->cards[$i]->tasks;
+
+            $this->assertCount(5, $getTasks);
+        }
+    }
+
+    /**
+     * Test:
      * Create basic cards.
      *
      * @return void
