@@ -31,7 +31,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Add authenticate user id to request
+     * Add authenticate user id to request.
      *
      * @param  array  $request
      * @param  string  $attribute

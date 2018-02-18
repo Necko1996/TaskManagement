@@ -16,8 +16,7 @@ class Request extends FormRequest
      */
     protected function changeRulesByMethod($method, array $rules, array $additionalRules)
     {
-        if($this->method == $method)
-        {
+        if ($this->method == $method) {
             return $rules + $additionalRules;
         }
 

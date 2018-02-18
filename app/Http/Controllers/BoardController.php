@@ -100,7 +100,6 @@ class BoardController extends Controller
      */
     public function update(BoardRequest $request, Board $board)
     {
-
         $board->update($request->all());
 
         session()->flash('success-message', Lang::get('boards.successUpdateBoard'));

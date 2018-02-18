@@ -27,7 +27,7 @@ class CardRequest extends Request
         ];
 
         $this->changeRulesByMethod('POST', $rules, [
-            'board_id' => 'required|integer'
+            'board_id' => 'required|integer',
         ]);
 
         return $rules;
