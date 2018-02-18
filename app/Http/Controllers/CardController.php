@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Lang;
 use App\Card;
 use App\Board;
-use Illuminate\Http\Request;
+use App\Http\Requests\CardRequest;
 
 class CardController extends Controller
 {
@@ -50,18 +50,11 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CardRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CardRequest $request)
     {
-        $this->validate($request,
-            [
-                'name' => 'required|min:5',
-                'status' => 'required|integer',
-                'board_id' => 'required|integer',
-            ]);
-
         Card::create($request->all());
 
         session()->flash('success-message', Lang::get('cards.successAddTask'));
@@ -94,19 +87,12 @@ class CardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CardRequest  $request
      * @param  \App\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Card $card)
+    public function update(CardRequest $request, Card $card)
     {
-        $this->validate($request,
-            [
-                'name' => 'required|min:2',
-                'status' => 'required|integer',
-            ]
-        );
-
         $card->update($request->all());
 
         session()->flash('success-message', Lang::get('cards.successUpdateTask'));

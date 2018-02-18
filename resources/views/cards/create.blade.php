@@ -41,7 +41,7 @@
                                 <label for="status" class="col-md-4 control-label">@lang('cards.Status')</label>
 
                                 <div class="col-md-6">
-                                    <input id="status" type="text" class="form-control" name="status" value="{{ old('status') }}" required>
+                                    <input id="status" type="number" class="form-control" name="status" value="{{ old('status') }}" required>
 
                                     @if ($errors->has('status'))
                                         <span class="help-block">

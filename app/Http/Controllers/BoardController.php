@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Lang;
-use App\Card;
 use App\Board;
-use Illuminate\Http\Request;
+use App\Http\Requests\BoardRequest;
 
 class BoardController extends Controller
 {
@@ -52,21 +51,13 @@ class BoardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\BoardRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BoardRequest $request)
     {
-        $this->validate($request,
-            [
-                'name' => 'required|min:3',
-            ]);
-
         $board = Board::create(
-            [
-                'name' => $request->name,
-                'user_id' => auth()->id(),
-            ]
+            $this->addUser($request->all(), 'user_id')
         );
 
         Board::createBase($board);
@@ -103,17 +94,12 @@ class BoardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\BoardRequest  $request
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Board $board)
+    public function update(BoardRequest $request, Board $board)
     {
-        $this->validate($request,
-            [
-                'name' => 'required|min:3',
-            ]
-        );
 
         $board->update($request->all());
 

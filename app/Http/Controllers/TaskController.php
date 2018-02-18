@@ -6,7 +6,7 @@ use Lang;
 use App\Card;
 use App\Task;
 use App\Board;
-use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
@@ -53,20 +53,11 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TaskRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        $this->validate($request,
-            [
-                'title' => 'required|min:5',
-                'description' => 'required|min:10',
-                'priority' => 'required|integer',
-                'board_id' => 'required|integer',
-                'card_id' => 'required|integer',
-            ]);
-
         Task::create($request->all());
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
@@ -103,21 +94,12 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TaskRequest $request;
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
-        $this->validate($request,
-            [
-                'title' => 'required|min:5',
-                'description' => 'required|min:10',
-                'priority' => 'required|integer',
-                'card_id' => 'required|integer',
-            ]
-        );
-
         $task->update($request->all());
 
         session()->flash('success-message', Lang::get('tasks.successUpdateTask'));
