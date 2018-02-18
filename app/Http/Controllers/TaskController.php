@@ -67,16 +67,7 @@ class TaskController extends Controller
                 'card_id' => 'required|integer',
             ]);
 
-        Task::create(
-            [
-                'title' => $request->title,
-                'description' => $request->description,
-                'priority' => $request->priority,
-                'board_id' => $request->board_id,
-                'card_id' => $request->card_id,
-                'user_id' => auth()->id(),
-            ]
-        );
+        Task::create($request->all());
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
 

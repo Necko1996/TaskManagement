@@ -62,13 +62,7 @@ class CardController extends Controller
                 'board_id' => 'required|integer',
             ]);
 
-        Card::create(
-            [
-                'name' => $request->name,
-                'status' => $request->status,
-                'board_id' => $request->board_id,
-            ]
-        );
+        Card::create($request->all());
 
         session()->flash('success-message', Lang::get('cards.successAddTask'));
 
