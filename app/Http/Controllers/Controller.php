@@ -29,16 +29,4 @@ class Controller extends BaseController
     {
         return view($this->viewDir.'.'.$view, $data);
     }
-
-    /**
-     * Add authenticate user id to request.
-     *
-     * @param  array  $request
-     * @param  string  $attribute
-     * @return array
-     */
-    protected function addUser($request, $attribute)
-    {
-        return $request + [$attribute => auth()->id()];
-    }
 }

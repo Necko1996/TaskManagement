@@ -57,7 +57,9 @@ class BoardController extends Controller
     public function store(BoardRequest $request)
     {
         $board = Board::create(
-            $this->addUser($request->all(), 'user_id')
+            array_union($request->all(), [
+                'user_id' => auth()->id(),
+            ])
         );
 
         Board::createBase($board);
