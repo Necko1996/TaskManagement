@@ -5,28 +5,28 @@ namespace App\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
-class RepositoryMakeCommand extends GeneratorCommand
+class InterfaceMakeCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $name = 'make:repository';
+    protected $name = 'make:interface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new repository class';
+    protected $description = 'Create a new interface';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Repository';
+    protected $type = 'Interface';
 
     /**
      * Execute the console command.
@@ -47,7 +47,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'\stubs\repository.stub';
+        return __DIR__.'\stubs\interface.stub';
     }
 
     /**
@@ -58,7 +58,11 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories';
+        if ($this->option('repository')) {
+            return $rootNamespace.'\Repositories';
+        }
+
+        return $rootNamespace.'\Interfaces';
     }
 
     /**
@@ -69,7 +73,8 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['force', null, InputOption::VALUE_NONE, 'Create the class even if the repository already exists.'],
+            ['force', null, InputOption::VALUE_NONE, 'Create the class even if the interface already exists.'],
+            ['repository', 'r', InputOption::VALUE_NONE, 'Create the interface for repository.'],
         ];
     }
 }
