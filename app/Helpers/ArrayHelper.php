@@ -16,10 +16,8 @@ class ArrayHelper
     {
         $union = $array + $another;
 
-        if(count($args) > 0)
-        {
-            foreach ($args as $arg)
-            {
+        if (count($args) > 0) {
+            foreach ($args as $arg) {
                 $union += $arg;
             }
         }
