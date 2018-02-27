@@ -65,13 +65,11 @@ class BoardController extends Controller
      */
     public function store(BoardRequest $request)
     {
-        $board = Board::create(
+        $this->boardRepository->create(
             array_union($request->all(), [
                 'user_id' => auth()->id(),
             ])
         );
-
-        Board::createBase($board);
 
         session()->flash('success-message', Lang::get('boards.successAddBoard'));
 
@@ -86,7 +84,7 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        $board = Board::getAll($board);
+        $board = $this->boardRepository->getAll($board);
 
         return $this->view('show', compact('board'));
     }
