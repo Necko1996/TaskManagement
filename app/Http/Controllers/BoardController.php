@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Lang;
 use App\Board;
 use App\Http\Requests\BoardRequest;
+use App\Repositories\Board\BoardRepositoryInterface;
 
 class BoardController extends Controller
 {
@@ -16,14 +17,22 @@ class BoardController extends Controller
     protected $viewDir = 'boards';
 
     /**
+     * Board Repository
+     *
+     * @var BoardRepositoryInterface
+     */
+    protected $boardRepository;
+
+    /**
      * Create a new controller instance.
      * Only auth users can see.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(BoardRepositoryInterface $boardRepository)
     {
         $this->middleware('auth');
+        $this->boardRepository = $boardRepository;
     }
 
     /**
@@ -33,7 +42,7 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $boards = Board::get();
+        $boards = $this->boardRepository->get();
 
         return $this->view('index', compact('boards'));
     }

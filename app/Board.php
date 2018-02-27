@@ -16,16 +16,6 @@ class Board extends Model
     ];
 
     /**
-     * Get all boards.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    public static function get()
-    {
-        return static::forAuthUser()->get();
-    }
-
-    /**
      * Get board with related cards who have related tasks.
      *
      * @return \Illuminate\Database\Eloquent\Collection
