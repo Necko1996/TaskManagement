@@ -17,7 +17,7 @@ class BoardController extends Controller
     protected $viewDir = 'boards';
 
     /**
-     * Board Repository
+     * Board Repository.
      *
      * @var BoardRepositoryInterface
      */
