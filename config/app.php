@@ -181,7 +181,7 @@ return [
         /*
          * Custom Application Service Providers...
          */
-        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\BoardRepositoryServiceProvider::class,
 
     ],
 

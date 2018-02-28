@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\Board\BoardRepository;
 use App\Repositories\Board\BoardRepositoryInterface;
 
-class RepositoryServiceProvider extends ServiceProvider
+class BoardRepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.

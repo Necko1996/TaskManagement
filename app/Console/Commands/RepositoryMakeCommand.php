@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 class RepositoryMakeCommand extends GeneratorCommand
@@ -38,6 +40,44 @@ class RepositoryMakeCommand extends GeneratorCommand
         if (parent::handle() === false && ! $this->option('force')) {
             return;
         }
+
+        if ($this->option('all')) {
+            $this->input->setOption('interface', true);
+            $this->input->setOption('provider', true);
+        }
+
+        if ($this->option('interface')) {
+            $this->createInterface();
+        }
+
+        if ($this->option('provider')) {
+            $this->createProvider();
+        }
+    }
+
+    /**
+     * Create a interface for repository.
+     *
+     * @return void
+     */
+    protected function createInterface()
+    {
+        $this->call('make:interface', [
+            'name' => $this->argument('name').'Interface',
+            '--repository' => true,
+        ]);
+    }
+
+    /**
+     * Create a service provider for repository.
+     *
+     * @return void
+     */
+    protected function createProvider()
+    {
+        $this->call('make:provider', [
+            'name' => $this->argument('name').'ServiceProvider',
+        ]);
     }
 
     /**
@@ -69,7 +109,10 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
+            ['all', 'a', InputOption::VALUE_NONE, 'Generate interface and provider for repository.'],
             ['force', null, InputOption::VALUE_NONE, 'Create the class even if the repository already exists.'],
+            ['interface', 'i', InputOption::VALUE_NONE, 'Create a new interface for repository.'],
+            ['provider', 'p', InputOption::VALUE_NONE, 'Create a new provider for repository.'],
         ];
     }
 }
