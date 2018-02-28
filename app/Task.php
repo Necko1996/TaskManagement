@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -13,18 +12,13 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'status', 'priority', 'board_id', 'card_id',
+        'title',
+        'description',
+        'status',
+        'priority',
+        'board_id',
+        'card_id',
     ];
-
-    /**
-     * Get all tasks.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    public static function get()
-    {
-        return static::sortedPriority()->get();
-    }
 
     /**
      * Scope a query for auth user.

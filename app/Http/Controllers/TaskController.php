@@ -35,9 +35,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::get();
-
-        return $this->view('index', compact('tasks'));
+        //
     }
 
     /**
@@ -73,7 +71,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        $cards = Board::getCards($task->board_id);
+        $cards = Board::forAuthUser()->find($task->board_id)->cards;
 
         return $this->view('show', compact('task', 'cards'));
     }
@@ -86,7 +84,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $cards = Board::getCards($task->board_id);
+        $cards = Board::forAuthUser()->find($task->board_id)->cards;
 
         return $this->view('edit', compact('task', 'cards'));
     }
