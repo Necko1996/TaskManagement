@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
 class RepositoryMakeCommand extends GeneratorCommand
