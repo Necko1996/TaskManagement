@@ -26,7 +26,9 @@ Route::resource('boards', 'BoardController');
 //Card routes
 Route::resource('cards', 'CardController');
 Route::get('/{board}/cards/create', 'CardController@create')->name('boards.cards.create');
+Route::post('/{board}/cards', 'CardController@store')->name('boards.cards.store');
 
 //Task routes
 Route::resource('tasks', 'TaskController');
 Route::get('/{board}/{card}/tasks/create', 'TaskController@create')->name('boards.cards.tasks.create');
+Route::post('/{board}/{card}/tasks', 'TaskController@store')->name('boards.cards.tasks.store');

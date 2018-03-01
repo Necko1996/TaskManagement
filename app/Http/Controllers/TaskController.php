@@ -7,6 +7,7 @@ use App\Card;
 use App\Task;
 use App\Board;
 use App\Http\Requests\TaskRequest;
+use App\Repositories\Task\TaskRepositoryInterface;
 
 class TaskController extends Controller
 {
@@ -18,24 +19,23 @@ class TaskController extends Controller
     protected $viewDir = 'tasks';
 
     /**
+     * Board Repository.
+     *
+     * @var TaskRepositoryInterface
+     */
+    protected $taskRepository;
+
+    /**
      * Create a new controller instance.
      * Only auth users can see.
      *
+     * @param \App\Repositories\Task\TaskRepositoryInterface $taskRepository
      * @return void
      */
-    public function __construct()
+    public function __construct(TaskRepositoryInterface $taskRepository)
     {
         $this->middleware('auth');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+        $this->taskRepository = $taskRepository;
     }
 
     /**
@@ -54,13 +54,18 @@ class TaskController extends Controller
      * @param  \App\Http\Requests\TaskRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TaskRequest $request)
+    public function store(TaskRequest $request, Board $board, Card $card)
     {
-        Task::create($request->all());
+        Task::create(
+            array_union($request->all(), [
+                'board_id' => $board->id,
+                'card_id' => $card->id,
+            ])
+        );
 
         session()->flash('success-message', Lang::get('tasks.successAddTask'));
 
-        return redirect()->route('boards.show', ['board' => $request->board_id]);
+        return redirect()->route('boards.show', ['board' => $board->id]);
     }
 
     /**
@@ -71,7 +76,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        $cards = Board::forAuthUser()->find($task->board_id)->cards;
+        $cards = $this->taskRepository->getCards($task->board_id);
 
         return $this->view('show', compact('task', 'cards'));
     }
@@ -84,7 +89,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $cards = Board::forAuthUser()->find($task->board_id)->cards;
+        $cards = $this->taskRepository->getCards($task->board_id);
 
         return $this->view('edit', compact('task', 'cards'));
     }

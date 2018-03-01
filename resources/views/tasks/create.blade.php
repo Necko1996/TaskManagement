@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('tasks.store') }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('boards.cards.tasks.store', ['board_id' => $board->id, 'card_id' => $card->id]) }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -65,34 +65,6 @@
                                     @if ($errors->has('priority'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('priority') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('board_id') ? ' has-error' : '' }}" hidden>
-                                <label for="board_id" class="col-md-4 control-label"></label>
-
-                                <div class="col-md-6">
-                                    <input id="board_id" type="text" class="form-control" name="board_id" value="{{ $board->id }}" required>
-
-                                    @if ($errors->has('board_id'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('board_id') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('card_id') ? ' has-error' : '' }}" hidden>
-                                <label for="card_id" class="col-md-4 control-label"></label>
-
-                                <div class="col-md-6">
-                                    <input id="card_id" type="text" class="form-control" name="card_id" value="{{ $card->id }}" required>
-
-                                    @if ($errors->has('card_id'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('card_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>

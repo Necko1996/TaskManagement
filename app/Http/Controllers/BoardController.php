@@ -27,6 +27,7 @@ class BoardController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
+     * @param \App\Repositories\Board\BoardRepositoryInterface $boardRepository
      * @return void
      */
     public function __construct(BoardRepositoryInterface $boardRepository)
@@ -66,9 +67,7 @@ class BoardController extends Controller
     public function store(BoardRequest $request)
     {
         $this->boardRepository->create(
-            array_union($request->all(), [
-                'user_id' => auth()->id(),
-            ])
+            array_union($request->all(), ['user_id' => auth()->id()])
         );
 
         session()->flash('success-message', Lang::get('boards.successAddBoard'));

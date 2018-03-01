@@ -28,16 +28,6 @@ class CardController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -53,24 +43,15 @@ class CardController extends Controller
      * @param  \App\Http\Requests\CardRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CardRequest $request)
+    public function store(CardRequest $request, Board $board)
     {
-        Card::create($request->all());
+        Card::create(
+            array_union($request->all(), ['board_id' => $board->id])
+        );
 
         session()->flash('success-message', Lang::get('cards.successAddTask'));
 
-        return redirect()->route('boards.show', ['board' => $request->board_id]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Card $card)
-    {
-        //
+        return redirect()->route('boards.show', ['board' => $board->id]);
     }
 
     /**

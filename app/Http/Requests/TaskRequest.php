@@ -21,17 +21,10 @@ class TaskRequest extends Request
      */
     public function rules()
     {
-        $rules = [
+        return [
             'title' => 'required|min:5',
             'description' => 'required|min:10',
             'priority' => 'required|integer',
-            'card_id' => 'required|integer',
         ];
-
-        $this->changeRulesByMethod('POST', $rules, [
-            'board_id' => 'required|integer',
-        ]);
-
-        return $rules;
     }
 }

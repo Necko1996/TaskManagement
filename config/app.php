@@ -182,6 +182,7 @@ return [
          * Custom Application Service Providers...
          */
         App\Providers\BoardRepositoryServiceProvider::class,
+        App\Providers\TaskRepositoryServiceProvider::class,
 
     ],
 

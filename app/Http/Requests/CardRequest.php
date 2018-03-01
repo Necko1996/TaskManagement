@@ -21,15 +21,9 @@ class CardRequest extends Request
      */
     public function rules()
     {
-        $rules = [
+        return [
             'name' => 'required|min:5',
             'status' => 'required|integer',
         ];
-
-        $this->changeRulesByMethod('POST', $rules, [
-            'board_id' => 'required|integer',
-        ]);
-
-        return $rules;
     }
 }

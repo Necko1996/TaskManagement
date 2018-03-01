@@ -44,7 +44,7 @@
                             <div class="pull-left"><h5>{{ $card->name }}</h5></div>
 
                             <div class="pull-right">
-                                <a href="#" onclick="document.getElementById('card-delete-form').submit()" style="margin-left: 10px">
+                                <a href="#" onclick="document.getElementById('card-delete-form-{{ $card->id }}').submit()" style="margin-left: 10px">
                                     <button class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -56,7 +56,7 @@
                                     </button>
                                 </a>
 
-                                <form id="card-delete-form" action="{{ route('cards.destroy', ['card' => $card->id]) }}" method="POST" style="display: none">
+                                <form id="card-delete-form-{{ $card->id }}" action="{{ route('cards.destroy', ['card' => $card->id]) }}" method="POST" style="display: none">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
                                 </form>
