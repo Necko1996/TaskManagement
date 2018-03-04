@@ -37,8 +37,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="links nav navbar-nav">
-                        <li><a href="{{ route('dashboard') }}">Dashbaord</a></li>
-                        <li><a href="{{ route('boards.index') }}">Boards</a></li>
+                        @auth
+                            <li><a href="{{ route('dashboard') }}">Dashbaord</a></li>
+                            <li><a href="{{ route('boards.index') }}">Boards</a></li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
