@@ -4,6 +4,7 @@ namespace App\Repositories\Board;
 
 use App\Card;
 use App\Board;
+use App\Events\BoardCreateEvent;
 use App\Repositories\Repository;
 
 class BoardRepository extends Repository implements BoardRepositoryInterface
@@ -28,7 +29,7 @@ class BoardRepository extends Repository implements BoardRepositoryInterface
     {
         $board = Board::create($array);
 
-        $this->createBase($board);
+        event(new BoardCreateEvent($board));
     }
 
     /**
@@ -40,20 +41,5 @@ class BoardRepository extends Repository implements BoardRepositoryInterface
     public function getAll(Board $board)
     {
         return Board::with('Cards.Tasks')->find($board->id);
-    }
-
-    /**
-     * Create basic cards template.
-     *
-     * @param \App\Board $board
-     * @return void
-     */
-    public function createBase(Board $board)
-    {
-        $board->cards()->saveMany([
-            new Card(['name' => 'To Do', 'status' => 0]),
-            new Card(['name' => 'In Progress', 'status' => 1]),
-            new Card(['name' => 'Done', 'status' => 2]),
-        ]);
     }
 }
