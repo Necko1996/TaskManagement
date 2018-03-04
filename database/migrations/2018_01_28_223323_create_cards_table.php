@@ -19,6 +19,8 @@ class CreateCardsTable extends Migration
             $table->string('name');
             $table->integer('status');
             $table->timestamps();
+
+            $table->index('board_id');
         });
     }
 

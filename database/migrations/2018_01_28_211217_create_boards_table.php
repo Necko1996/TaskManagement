@@ -18,6 +18,8 @@ class CreateBoardsTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 

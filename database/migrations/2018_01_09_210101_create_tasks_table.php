@@ -21,6 +21,9 @@ class CreateTasksTable extends Migration
             $table->text('description');
             $table->integer('priority');
             $table->timestamps();
+
+            $table->index('card_id');
+            $table->index('board_id');
         });
     }
 
