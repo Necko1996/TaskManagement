@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\RepositoryMakeCommand',
         'App\Console\Commands\InterfaceMakeCommand',
+        'App\Console\Commands\TraitMakeCommand',
     ];
 
     /**
