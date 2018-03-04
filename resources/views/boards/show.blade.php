@@ -77,7 +77,7 @@
                                 @endforeach
                             </div>
 
-                            <a href="{{ route('boards.cards.tasks.create', ['board' => $board->id, 'card' => $card->id]) }}">
+                            <a href="{{ route('tasks.create', ['board' => $board->id, 'card' => $card->id]) }}">
                                 <button class="btn btn-default col-sm-12 m-t-22">
                                     <h5> @lang('tasks.createTask') </h5>
                                 </button>
@@ -88,7 +88,7 @@
                     </div>
                 @endforeach
 
-                <a href="{{ route('boards.cards.create', ['board' => $board->id]) }}">
+                <a href="{{ route('cards.create', ['board' => $board->id]) }}">
                     <button class="btn btn-default col-sm-2 m-l-22">
                         <h5> @lang('cards.createCard') </h5>
                     </button>

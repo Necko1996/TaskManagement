@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('boards.cards.tasks.store', ['board_id' => $board->id, 'card_id' => $card->id]) }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('tasks.store', ['board_id' => $board->id, 'card_id' => $card->id]) }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
