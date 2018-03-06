@@ -3,10 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\UserRegisterEvent;
-use App\Notifications\UserConfirmationNotification;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\UserConfirmationNotification;
 
 class SendConfirmationMailEventListener implements ShouldQueue
 {
