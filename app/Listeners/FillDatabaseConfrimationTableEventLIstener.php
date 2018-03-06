@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
+use Ramsey\Uuid\Uuid;
 use App\UserConfirmation;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Ramsey\Uuid\Uuid;
 
 class FillDatabaseConfrimationTableEventLIstener implements ShouldQueue
 {
