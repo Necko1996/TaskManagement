@@ -16,6 +16,11 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\BoardCreateEvent' => [
             'App\Listeners\CardsCreateEventListener',
         ],
+
+        'Illuminate\Auth\Events\Registered' => [
+            'App\Listeners\FillDatabaseConfrimationTableEventLIstener',
+            'App\Listeners\SendConfirmationMailEventListener',
+        ],
     ];
 
     /**
