@@ -18,7 +18,7 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         'Illuminate\Auth\Events\Registered' => [
-            'App\Listeners\FillDatabaseConfrimationTableEventLIstener',
+            'App\Listeners\FillDatabaseConfirmationTableEventListener',
             'App\Listeners\SendConfirmationMailEventListener',
         ],
     ];

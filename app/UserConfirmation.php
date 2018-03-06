@@ -26,7 +26,11 @@ class UserConfirmation extends Model
         'token',
     ];
 
-    // TODO: Using Token
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'token';

@@ -43,7 +43,6 @@ class UserConfirmationNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        // TODO: Using Token
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', route('user.confirm', ['user_confirmation' => $this->user->user_confirmations->token]))

@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Ramsey\Uuid\Uuid;
 
-class FillDatabaseConfrimationTableEventLIstener implements ShouldQueue
+class FillDatabaseConfirmationTableEventListener implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -30,7 +30,6 @@ class FillDatabaseConfrimationTableEventLIstener implements ShouldQueue
     {
         UserConfirmation::create([
             'email' => $event->user->email,
-            // TODO: Using Token | make better token
             'token' => Uuid::uuid4()->toString(),
         ]);
     }
