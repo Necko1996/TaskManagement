@@ -29,6 +29,6 @@ class UserConfirmation extends Model
     // TODO: Using Token
     public function getRouteKeyName()
     {
-        return 'email';
+        return 'token';
     }
 }
