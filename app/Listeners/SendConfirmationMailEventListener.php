@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use App\Events\UserRegisterEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;

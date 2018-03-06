@@ -6,8 +6,6 @@ use App\UserConfirmation;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Prophecy\Argument\Token\TokenInterface;
-use Illuminate\Auth\Passwords\PasswordBroker;
 
 class FillDatabaseConfrimationTableEventLIstener implements ShouldQueue
 {
