@@ -19,6 +19,7 @@
                     @auth
                         <a href="{{ route('dashboard') }}">Dashboard</a>
                         <a href="{{ route('boards.index') }}">Boards</a>
+                        {{--<a href="{{ route('team.index') }}">Team</a>--}}
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>

@@ -40,3 +40,6 @@ Route::get('tasks/{task}', 'TaskController@show')->name('tasks.show');
 Route::get('tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
 Route::patch('tasks/{task}', 'TaskController@update')->name('tasks.update');
 Route::delete('tasks/{task}', 'TaskController@destroy')->name('tasks.destroy');
+
+//Team routes
+Route::resource('team', 'TeamController');
