@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserConfirmationsTable extends Migration
+class UserVerificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class UserConfirmationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_confirmations', function (Blueprint $table) {
+        Schema::create('user_verifications', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->index();
             $table->string('token');
@@ -29,6 +29,6 @@ class UserConfirmationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_confirmations');
+        Schema::dropIfExists('user_verifications');
     }
 }

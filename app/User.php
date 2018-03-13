@@ -30,8 +30,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function user_confirmations()
+    public function user_verifications()
     {
-        return $this->hasOne(UserConfirmation::class, 'email', 'email');
+        return $this->hasOne(UserVerification::class, 'email', 'email');
     }
 }

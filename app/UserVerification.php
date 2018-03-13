@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserConfirmation extends Model
+class UserVerification extends Model
 {
     /**
      * The attributes that are mass assignable.

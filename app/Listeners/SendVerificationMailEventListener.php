@@ -2,13 +2,12 @@
 
 namespace App\Listeners;
 
-use Ramsey\Uuid\Uuid;
-use App\UserConfirmation;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\UserVerificationNotification;
 
-class FillDatabaseConfirmationTableEventListener implements ShouldQueue
+class SendVerificationMailEventListener implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -28,9 +27,6 @@ class FillDatabaseConfirmationTableEventListener implements ShouldQueue
      */
     public function handle(Registered $event)
     {
-        UserConfirmation::create([
-            'email' => $event->user->email,
-            'token' => Uuid::uuid4()->toString(),
-        ]);
+        $event->user->notify(new UserVerificationNotification($event->user));
     }
 }

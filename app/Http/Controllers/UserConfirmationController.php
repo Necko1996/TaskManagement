@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Lang;
-use App\UserConfirmation;
+use App\UserVerification;
 use Illuminate\Http\Request;
 
 class UserConfirmationController extends Controller
@@ -21,17 +21,17 @@ class UserConfirmationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\UserConfirmation $userConfirmation
+     * @param  \App\UserVerification $user_verification
      *
      * @return \Illuminate\Http\Response
      */
-    public function confirm(UserConfirmation $user_confirmation)
+    public function confirm(UserVerification $user_verification)
     {
-        $user_confirmation->update([
+        $user_verification->update([
             'verified' => 1,
         ]);
 
-        session()->flash('success-message', Lang::get('auth.successConfirmation'));
+        session()->flash('success-message', Lang::get('auth.successVerification'));
 
         return redirect()->route('dashboard');
     }

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class UserConfirmationNotification extends Notification implements ShouldQueue
+class UserVerificationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -45,7 +45,7 @@ class UserConfirmationNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', route('user.confirm', ['user_confirmation' => $this->user->user_confirmations->token]))
+                    ->action('Notification Action', route('user.verify', ['user_confirmation' => $this->user->user_verifications->token]))
                     ->line('Thank you for using our application!');
     }
 }

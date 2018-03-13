@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 //User Confrimation
-Route::get('/{user_confirmation}/confirm', 'UserConfirmationController@confirm')->name('user.confirm');
+Route::get('/{user_verification}/verify', 'UserConfirmationController@confirm')->name('user.verify');
 
 //Home routes
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
