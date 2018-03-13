@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use Lang;
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -57,6 +60,13 @@ class Handler extends ExceptionHandler
         // instead of our own view in resources/views/errors/500.blade.php
         if ($this->shouldReport($exception) && ! $this->isHttpException($exception) && ! config('app.debug')) {
             $exception = new HttpException(500, 'Whoops!');
+        }
+
+        if($exception instanceof AuthorizationException) {
+
+            session()->flash('error-message', Lang::get('auth.notVerified'));
+
+            return redirect()->route('boards.index');
         }
 
         return parent::render($request, $exception);

@@ -76,7 +76,7 @@
             </div>
         </nav>
 
-        @include('components.success-alert')
+        @include('components.alerts')
 
         @yield('content')
     </div>

@@ -15,5 +15,6 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'successVerification' => 'You successfuly verify you account.',
+    'successVerification' => 'You successfully verify you account.',
+    'notVerified' => 'You have no authorization to do that. Please verify your account.',
 ];

@@ -92,6 +92,11 @@ html, body {
   -webkit-backface-visibility: hidden;
 }
 
+.error-message
+{
+  @extend .success-message;
+}
+
 .completed
 {
   text-decoration: line-through;
