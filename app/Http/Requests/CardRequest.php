@@ -11,7 +11,7 @@ class CardRequest extends Request
      */
     public function authorize()
     {
-        return $this->user();
+        return $this->user()->user_verifications->verified;
     }
 
     /**
