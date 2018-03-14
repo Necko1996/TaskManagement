@@ -42,4 +42,4 @@ Route::patch('tasks/{task}', 'TaskController@update')->name('tasks.update');
 Route::delete('tasks/{task}', 'TaskController@destroy')->name('tasks.destroy');
 
 //Team routes
-Route::resource('team', 'TeamController');
+Route::resource('teams', 'TeamController');

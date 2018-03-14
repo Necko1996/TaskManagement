@@ -21,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\FillDatabaseVerificationTableEventListener',
             'App\Listeners\SendVerificationMailEventListener',
         ],
+
+        'App\Events\AssignUserToTeamEvent' => [
+            'App\Listeners\UpdateTeamIDForUserEventListener',
+        ],
     ];
 
     /**

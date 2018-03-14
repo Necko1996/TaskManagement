@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AssignUserToTeamEvent;
 use App\Team;
-use Illuminate\Http\Request;
+use App\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
 {
@@ -12,17 +13,7 @@ class TeamController extends Controller
      *
      * @var string
      */
-    protected $viewDir = 'team';
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return $this->view('index');
-    }
+    protected $viewDir = 'teams';
 
     /**
      * Create a new controller instance.
@@ -36,24 +27,40 @@ class TeamController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $teams = Team::with('Users')->where('id', '=', auth()->id())->get();
+        dd($teams);
+        return $this->view('index', compact('teams'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return $this->view('create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TeamRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
-        //
+        $team = Team::create($request->all());
+
+        event(new AssignUserToTeamEvent($team));
+
+        return redirect()->route('teams.index');
     }
 
     /**
@@ -81,11 +88,11 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TeamRequest  $request
      * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Team $team)
+    public function update(TeamRequest $request, Team $team)
     {
         //
     }
