@@ -7,7 +7,7 @@ use App\Events\AssignUserToTeamEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UpdateTeamIDForUserEventListener
+class UpdateTeamIDForUserEventListener implements ShouldQueue
 {
     /**
      * Create the event listener.
