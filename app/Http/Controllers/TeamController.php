@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\AssignUserToTeamEvent;
 use App\Team;
 use App\Http\Requests\TeamRequest;
+use App\Events\AssignUserToTeamEvent;
 
 class TeamController extends Controller
 {
@@ -35,6 +35,7 @@ class TeamController extends Controller
     {
         $teams = Team::with('Users')->where('id', '=', auth()->id())->get();
         dd($teams);
+
         return $this->view('index', compact('teams'));
     }
 

@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\AssignUserToTeamEvent;
 use App\User;
+use App\Events\AssignUserToTeamEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
