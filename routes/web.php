@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//User Confrimation
+//User Verification
 Route::get('/{user_verification}/verify', 'UserConfirmationController@confirm')->name('user.verify');
 
 //Home routes
