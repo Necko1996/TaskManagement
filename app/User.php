@@ -18,7 +18,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'team_id',
     ];
 
     /**
@@ -34,5 +33,10 @@ class User extends Authenticatable
     public function user_verifications()
     {
         return $this->hasOne(UserVerification::class, 'email', 'email');
+    }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class);
     }
 }

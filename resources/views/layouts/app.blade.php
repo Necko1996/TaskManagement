@@ -40,7 +40,7 @@
                         @auth
                             <li><a href="{{ route('dashboard') }}">Dashbaord</a></li>
                             <li><a href="{{ route('boards.index') }}">Boards</a></li>
-                            <li><a href="{{ route('teams.index') }}">Team</a></li>
+                            <li><a href="{{ route('teams.index') }}">Teams</a></li>
                         @endauth
                     </ul>
 

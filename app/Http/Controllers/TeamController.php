@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Lang;
 use App\Team;
+use App\User;
 use App\Http\Requests\TeamRequest;
 use App\Events\AssignUserToTeamEvent;
 
@@ -34,7 +35,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::with('Users')->where('id', '=', auth()->id())->get();
+        $teams = Team::whereHas('Users', function ($query) {
+            $query->where('id', auth()->id());
+        })->get();
 
         return $this->view('index', compact('teams'));
     }

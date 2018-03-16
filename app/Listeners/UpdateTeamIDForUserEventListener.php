@@ -27,10 +27,6 @@ class UpdateTeamIDForUserEventListener implements ShouldQueue
      */
     public function handle(AssignUserToTeamEvent $event)
     {
-        $user = User::find(auth()->id());
-
-        $user->update([
-            'team_id' => $event->team->id,
-        ]);
+        $event->team->users()->attach(auth()->id());
     }
 }
