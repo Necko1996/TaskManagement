@@ -7,7 +7,7 @@ use App\Board;
 interface BoardRepositoryInterface
 {
     /**
-     * Get all boards.
+     * Get all boards by team.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */

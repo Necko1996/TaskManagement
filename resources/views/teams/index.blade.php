@@ -37,6 +37,8 @@
                             @endforeach
                         </div>
 
+                        <hr class="col-sm-12">
+
                     @endforeach
 
                 @else

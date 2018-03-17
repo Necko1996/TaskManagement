@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Board;
 
-use App\Card;
+use App\Team;
 use App\Board;
 use App\Events\BoardCreateEvent;
 use App\Repositories\Repository;
@@ -10,13 +10,15 @@ use App\Repositories\Repository;
 class BoardRepository extends Repository implements BoardRepositoryInterface
 {
     /**
-     * Get all boards.
+     * Get all boards by team.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function get()
     {
-        return Board::forAuthUser()->get();
+        return Team::with('Boards')->whereHas('Users', function ($query) {
+            $query->where('id', auth()->id());
+        })->get();
     }
 
     /**

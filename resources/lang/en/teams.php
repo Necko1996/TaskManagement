@@ -4,6 +4,7 @@ return [
 
     // Global variables
     'Name' => 'Name',
+    'Team' => 'Team',
 
     // Flash Messages
     'successAddTeam' => 'Successfully added team',

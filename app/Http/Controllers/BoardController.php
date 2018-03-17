@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Lang;
+use App\Team;
 use App\Board;
 use App\Http\Requests\BoardRequest;
 use App\Repositories\Board\BoardRepositoryInterface;
@@ -43,9 +44,9 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $boards = $this->boardRepository->get();
+        $teams = $this->boardRepository->get();
 
-        return $this->view('index', compact('boards'));
+        return $this->view('index', compact('teams'));
     }
 
     /**
@@ -55,7 +56,11 @@ class BoardController extends Controller
      */
     public function create()
     {
-        return $this->view('create');
+        $teams = Team::whereHas('Users', function ($query) {
+            $query->where('id', auth()->id());
+        })->get();
+
+        return $this->view('create', compact('teams'));
     }
 
     /**

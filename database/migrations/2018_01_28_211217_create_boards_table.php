@@ -16,10 +16,12 @@ class CreateBoardsTable extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('team_id');
             $table->string('name');
             $table->timestamps();
 
             $table->index('user_id');
+            $table->index('team_id');
         });
     }
 

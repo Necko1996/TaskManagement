@@ -7,7 +7,7 @@
             <div class="col-md-8 col-md-offset-2 m-b">
 
                 <div class="clearfix"></div>
-                @if(!empty($boards))
+                @if(!empty($teams))
 
                     <div class="mx-auto pull-right m-b">
                         <a href="{{ route('boards.create') }}">
@@ -18,14 +18,28 @@
                     <div class="clearfix"></div>
 
                     <div class="mb-2 col-sm-offset-1">
-                        @foreach($boards as $board)
-                            <a href="{{ route('boards.show', ['boards' => $board->id]) }}" class="hover">
-                                <div class="panel panel-default col-sm-5 m-l-22">
-                                    <div class="panel-body">
-                                        {{ $board->name  }}
+                        @foreach($teams as $team)
+
+                            <div class="mx-auto pull-left m-b col-sm-12">
+                                <h3>{{ $team->name }}</h3>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            @foreach($team->boards as $board)
+
+                                <a href="{{ route('boards.show', ['boards' => $board->id]) }}" class="hover">
+                                    <div class="panel panel-default col-sm-5 m-l-22">
+                                        <div class="panel-body">
+                                            {{ $board->name  }}
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+
+                            @endforeach
+
+                            <hr class="col-sm-12">
+
                         @endforeach
                     </div>
 

@@ -37,6 +37,24 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('team_id') ? ' has-error' : '' }}">
+                                <label for="team_id" class="col-md-4 control-label">@lang('teams.Team')</label>
+
+                                <div class="col-md-6">
+                                    <select id="team_id" class="form-control" name="team_id" required>
+                                        @foreach($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('team_id'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('team_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">

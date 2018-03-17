@@ -25,6 +25,7 @@ class BoardRequest extends Request
     {
         return [
             'name' => 'required|min:3',
+            'team_id' => 'required',
         ];
     }
 }
