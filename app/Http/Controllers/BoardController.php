@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Lang;
-use App\Team;
 use App\Board;
 use App\Http\Requests\BoardRequest;
 use App\Repositories\Board\BoardRepositoryInterface;
+use App\Repositories\Team\TeamRepositoryInterface;
 
 class BoardController extends Controller
 {
@@ -25,16 +25,24 @@ class BoardController extends Controller
     protected $boardRepository;
 
     /**
+     * Board Repository.
+     *
+     * @var TeamRepositoryInterface
+     */
+    protected $teamRepository;
+
+    /**
      * Create a new controller instance.
      * Only auth users can see.
      *
      * @param \App\Repositories\Board\BoardRepositoryInterface $boardRepository
      * @return void
      */
-    public function __construct(BoardRepositoryInterface $boardRepository)
+    public function __construct(BoardRepositoryInterface $boardRepository, TeamRepositoryInterface $teamRepository)
     {
         $this->middleware('auth');
         $this->boardRepository = $boardRepository;
+        $this->teamRepository = $teamRepository;
     }
 
     /**
@@ -56,9 +64,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        $teams = Team::whereHas('Users', function ($query) {
-            $query->where('id', auth()->id());
-        })->get();
+        $teams = $this->teamRepository->get();
 
         return $this->view('create', compact('teams'));
     }

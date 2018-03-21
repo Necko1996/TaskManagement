@@ -8,6 +8,7 @@ use App\User;
 use App\Http\Requests\TeamRequest;
 use App\Events\AssignUserToTeamEvent;
 use App\Http\Requests\TeamUserRequest;
+use App\Repositories\Team\TeamRepositoryInterface;
 
 class TeamController extends Controller
 {
@@ -19,14 +20,22 @@ class TeamController extends Controller
     protected $viewDir = 'teams';
 
     /**
+     * Team Repository.
+     *
+     * @var TeamRepositoryInterface
+     */
+    protected $teamRepository;
+
+    /**
      * Create a new controller instance.
      * Only auth users can see.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(TeamRepositoryInterface $teamRepository)
     {
         $this->middleware('auth');
+        $this->teamRepository = $teamRepository;
     }
 
     /**
@@ -36,9 +45,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::whereHas('Users', function ($query) {
-            $query->where('id', auth()->id());
-        })->get();
+        $teams = $this->teamRepository->get();
 
         return $this->view('index', compact('teams'));
     }
@@ -77,9 +84,7 @@ class TeamController extends Controller
      */
     public function addUser()
     {
-        $teams = Team::whereHas('Users', function ($query) {
-            $query->where('id', auth()->id());
-        })->get();
+        $teams = $this->teamRepository->get();
 
         return $this->view('addUser', compact('teams'));
     }

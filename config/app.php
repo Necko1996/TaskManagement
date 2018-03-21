@@ -183,6 +183,7 @@ return [
          */
         App\Providers\BoardRepositoryServiceProvider::class,
         App\Providers\TaskRepositoryServiceProvider::class,
+        App\Providers\TeamRepositoryServiceProvider::class,
 
     ],
 
