@@ -6,8 +6,8 @@ use Lang;
 use App\Team;
 use App\User;
 use App\Http\Requests\TeamRequest;
-use App\Http\Requests\TeamUserRequest;
 use App\Events\AssignUserToTeamEvent;
+use App\Http\Requests\TeamUserRequest;
 
 class TeamController extends Controller
 {
@@ -95,7 +95,7 @@ class TeamController extends Controller
         $team = Team::find($request->team_id);
         $user = User::where('email', '=', $request->email);
 
-        if( ! $user->exists()) {
+        if (! $user->exists()) {
             session()->flash('error-message', Lang::get('teams.errorNoUser'));
 
             return redirect()->route('teams.index');
