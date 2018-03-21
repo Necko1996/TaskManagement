@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Lang;
 use App\Board;
 use App\Http\Requests\BoardRequest;
-use App\Repositories\Board\BoardRepositoryInterface;
 use App\Repositories\Team\TeamRepositoryInterface;
+use App\Repositories\Board\BoardRepositoryInterface;
 
 class BoardController extends Controller
 {
