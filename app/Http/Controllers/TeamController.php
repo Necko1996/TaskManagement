@@ -6,6 +6,7 @@ use Lang;
 use App\Team;
 use App\User;
 use App\Http\Requests\TeamRequest;
+use App\Http\Requests\TeamUserRequest;
 use App\Events\AssignUserToTeamEvent;
 
 class TeamController extends Controller
@@ -70,47 +71,40 @@ class TeamController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for adding a new User to Team.
      *
-     * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function addUser()
     {
-        //
+        $teams = Team::whereHas('Users', function ($query) {
+            $query->where('id', auth()->id());
+        })->get();
+
+        return $this->view('addUser', compact('teams'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Store a new member of Team.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Http\Requests\TeamUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit(Team $team)
+    public function storeUser(TeamUserRequest $request)
     {
-        //
-    }
+        $team = Team::find($request->team_id);
+        $user = User::where('email', '=', $request->email);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\TeamRequest  $request
-     * @param  \App\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function update(TeamRequest $request, Team $team)
-    {
-        //
-    }
+        if( ! $user->exists()) {
+            session()->flash('error-message', Lang::get('teams.errorNoUser'));
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Team  $team
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Team $team)
-    {
-        //
+            return redirect()->route('teams.index');
+        }
+
+        $team->users()->attach($user->get());
+
+        session()->flash('success-message', Lang::get('teams.successAddUser'));
+
+        return redirect()->route('teams.index');
     }
 }

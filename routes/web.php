@@ -42,4 +42,9 @@ Route::patch('tasks/{task}', 'TaskController@update')->name('tasks.update');
 Route::delete('tasks/{task}', 'TaskController@destroy')->name('tasks.destroy');
 
 //Team routes
-Route::resource('teams', 'TeamController');
+Route::get('teams', 'TeamController@index')->name('teams.index');
+Route::get('teams/create', 'TeamController@create')->name('teams.create');
+Route::post('teams', 'TeamController@store')->name('teams.store');
+////Team User routes
+Route::get('teams/user', 'TeamController@addUser')->name('teams.addUser');
+Route::post('teams/user', 'TeamController@storeUser')->name('teams.storeUser');

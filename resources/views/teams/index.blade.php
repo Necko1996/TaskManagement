@@ -13,6 +13,10 @@
                         <a href="{{ route('teams.create') }}">
                             <button class="btn btn-primary">@lang('teams.createTeam') </button>
                         </a>
+
+                        <a href="{{ route('teams.addUser') }}">
+                            <button class="btn btn-primary">@lang('teams.addUser') </button>
+                        </a>
                     </div>
 
                     <div class="clearfix"></div>
