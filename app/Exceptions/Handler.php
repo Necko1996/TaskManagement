@@ -65,7 +65,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof AuthorizationException) {
             session()->flash('error-message', Lang::get('auth.notVerified'));
 
-            return redirect()->route('boards.index');
+            return redirect()->back();
         }
 
         return parent::render($request, $exception);
