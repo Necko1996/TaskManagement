@@ -4,8 +4,8 @@ namespace App\Listeners;
 
 use App\Card;
 use App\Events\BoardCreateEvent;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 
 class CardsCreateEventListener implements ShouldQueue
 {

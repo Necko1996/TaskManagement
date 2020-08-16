@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Board;
 
-use App\Team;
 use App\Board;
 use App\Events\BoardCreateEvent;
 use App\Repositories\Repository;
+use App\Team;
 
 class BoardRepository extends Repository implements BoardRepositoryInterface
 {

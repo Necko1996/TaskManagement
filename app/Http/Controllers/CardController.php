@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Lang;
-use App\Card;
 use App\Board;
+use App\Card;
 use App\Http\Requests\CardRequest;
+use Lang;
 
 class CardController extends Controller
 {

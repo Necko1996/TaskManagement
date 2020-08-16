@@ -2,14 +2,14 @@
 
 namespace Tests\Integration;
 
+use App\Board;
 use App\Card;
 use App\Task;
 use App\User;
-use App\Board;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class BoardTest extends TestCase
 {
