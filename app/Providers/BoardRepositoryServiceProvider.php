@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Repositories\Board\BoardRepository;
 use App\Repositories\Board\BoardRepositoryInterface;
+use Illuminate\Support\ServiceProvider;
 
 class BoardRepositoryServiceProvider extends ServiceProvider
 {

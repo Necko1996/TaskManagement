@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Lang;
-use App\Team;
-use App\User;
-use App\Http\Requests\TeamRequest;
 use App\Events\AssignUserToTeamEvent;
+use App\Http\Requests\TeamRequest;
 use App\Http\Requests\TeamUserRequest;
 use App\Repositories\Team\TeamRepositoryInterface;
+use App\Team;
+use App\User;
+use Lang;
 
 class TeamController extends Controller
 {

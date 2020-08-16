@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Repositories\Team\TeamRepository;
 use App\Repositories\Team\TeamRepositoryInterface;
+use Illuminate\Support\ServiceProvider;
 
 class TeamRepositoryServiceProvider extends ServiceProvider
 {

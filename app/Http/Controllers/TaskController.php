@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Lang;
-use App\Card;
-use App\Task;
 use App\Board;
+use App\Card;
 use App\Http\Requests\TaskRequest;
 use App\Repositories\Task\TaskRepositoryInterface;
+use App\Task;
+use Lang;
 
 class TaskController extends Controller
 {

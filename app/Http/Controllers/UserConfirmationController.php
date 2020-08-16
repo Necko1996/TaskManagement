@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Lang;
 use App\UserVerification;
 use Illuminate\Http\Request;
+use Lang;
 
 class UserConfirmationController extends Controller
 {

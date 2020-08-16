@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Repositories\Task\TaskRepository;
 use App\Repositories\Task\TaskRepositoryInterface;
+use Illuminate\Support\ServiceProvider;
 
 class TaskRepositoryServiceProvider extends ServiceProvider
 {

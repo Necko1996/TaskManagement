@@ -2,10 +2,10 @@
 
 namespace App\Listeners;
 
-use App\User;
 use App\Events\AssignUserToTeamEvent;
-use Illuminate\Queue\InteractsWithQueue;
+use App\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 
 class UpdateTeamIDForUserEventListener implements ShouldQueue
 {

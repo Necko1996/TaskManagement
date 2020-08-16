@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Team;
 
-use App\Team;
 use App\Repositories\Repository;
+use App\Team;
 
 class TeamRepository extends Repository implements TeamRepositoryInterface
 {
