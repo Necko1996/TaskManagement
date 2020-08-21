@@ -1,9 +1,9 @@
 @if($task->priority == 0)
-    <span class="label label-default ">@lang('tasks.priorityLow')</span>
+    <span class="badge badge-light">@lang('tasks.priorityLow')</span>
 @elseif($task->priority == 1)
-    <span class="label label-warning ">@lang('tasks.priorityNormal')</span>
+    <span class="badge badge-warning">@lang('tasks.priorityNormal')</span>
 @elseif($task->priority == 2)
-    <span class="label label-success ">@lang('tasks.priorityHigh')</span>
+    <span class="badge badge-success">@lang('tasks.priorityHigh')</span>
 @else
-    <span class="label label-danger ">@lang('tasks.errorPriority')</span>
+    <span class="badge badge-danger">@lang('tasks.errorPriority')</span>
 @endif
