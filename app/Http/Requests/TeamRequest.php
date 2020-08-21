@@ -13,7 +13,7 @@ class TeamRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user();
+        return $this->user()->email_verified_at;
     }
 
     /**

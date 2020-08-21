@@ -15,10 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-//User Verification
-Route::get('/{user_verification}/verify', 'UserConfirmationController@confirm')->name('user.verify');
+Auth::routes(['verify' => true]);
 
 //Home routes
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -48,3 +45,5 @@ Route::post('teams', 'TeamController@store')->name('teams.store');
 ////Team User routes
 Route::get('teams/user', 'TeamController@addUser')->name('teams.addUser');
 Route::post('teams/user', 'TeamController@storeUser')->name('teams.storeUser');
+
+Route::get('/home', 'HomeController@index')->name('home');

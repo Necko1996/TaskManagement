@@ -13,7 +13,7 @@ class BoardRequest extends Request
      */
     public function authorize()
     {
-        return $this->user()->user_verifications->verified;
+        return $this->user()->email_verified_at;
     }
 
     /**
