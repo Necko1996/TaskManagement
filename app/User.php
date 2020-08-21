@@ -31,7 +31,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-
     /**
      * The attributes that should be cast to native types.
      *
