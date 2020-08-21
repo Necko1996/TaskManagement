@@ -4,17 +4,11 @@ namespace App\Providers;
 
 use App\Repositories\Task\TaskRepository;
 use App\Repositories\Task\TaskRepositoryInterface;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class TaskRepositoryServiceProvider extends ServiceProvider
+class TaskRepositoryServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * Register the application services.
      *

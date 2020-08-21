@@ -14,7 +14,7 @@ return [
     | you may specify any of the other wonderful drivers provided here.
     |
     | Supported: "file", "cookie", "database", "apc",
-    |            "memcached", "redis", "array"
+    |            "memcached", "redis", dynamodb", "array"
     |
     */
 
@@ -79,9 +79,9 @@ return [
     | Session Database Table
     |--------------------------------------------------------------------------
     |
-    | When using the "database" session driver, you may specify the table we
-    | should use to manage the sessions. Of course, a sensible default is
-    | provided for you; however, you are free to change this as needed.
+    | When using the "apc", "memcached", or "dynamodb" session drivers you may
+    | list a cache store that should be used for these sessions. This value
+    | must match with one of the application's configured cache "stores".
     |
     */
 

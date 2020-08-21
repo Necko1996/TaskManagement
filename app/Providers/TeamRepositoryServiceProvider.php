@@ -4,17 +4,11 @@ namespace App\Providers;
 
 use App\Repositories\Team\TeamRepository;
 use App\Repositories\Team\TeamRepositoryInterface;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class TeamRepositoryServiceProvider extends ServiceProvider
+class TeamRepositoryServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
     /**
      * Register the application services.
      *
