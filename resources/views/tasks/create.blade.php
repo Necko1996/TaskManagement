@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tasks.store', ['board_id' => $board->id, 'card_id' => $card->id]) }}">
+                        <form method="POST" action="{{ route('tasks.store', ['board' => $board->id, 'card' => $card->id]) }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">

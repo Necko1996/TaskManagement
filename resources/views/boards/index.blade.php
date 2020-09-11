@@ -24,7 +24,7 @@
 
                             @foreach($team->boards as $board)
 
-                                <a href="{{ route('boards.show', ['boards' => $board->id]) }}" class="hover text-center">
+                                <a href="{{ route('boards.show', ['board' => $board->id]) }}" class="hover text-center">
                                     <div class="card col-sm-5 mb-2 ml-0">
                                         <div class="card-body">
                                             {{ $board->name }}
@@ -34,7 +34,8 @@
 
                             @endforeach
 
-                            <hr class="col-sm-12">
+                            <hr class="col-sm-12 m-2">
+                            <div class="clearfix"></div>
 
                         @endforeach
                     </div>

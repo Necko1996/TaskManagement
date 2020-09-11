@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\User;
-
-class BoardRequest extends Request
+class BoardStoreRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

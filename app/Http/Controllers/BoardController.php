@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Board;
-use App\Http\Requests\BoardRequest;
+use App\Http\Requests\BoardEditRequest;
+use App\Http\Requests\BoardStoreRequest;
 use App\Repositories\Board\BoardRepositoryInterface;
 use App\Repositories\Team\TeamRepositoryInterface;
 use Lang;
@@ -72,10 +73,10 @@ class BoardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\BoardRequest  $request
+     * @param  \App\Http\Requests\BoardStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BoardRequest $request)
+    public function store(BoardStoreRequest $request)
     {
         $this->boardRepository->create(
             array_union($request->all(), ['user_id' => auth()->id()])
@@ -113,13 +114,15 @@ class BoardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\BoardRequest  $request
+     * @param  \App\Http\Requests\BoardEditRequest  $request
      * @param  \App\Board  $board
      * @return \Illuminate\Http\Response
      */
-    public function update(BoardRequest $request, Board $board)
+    public function update(BoardEditRequest $request, Board $board)
     {
-        $board->update($request->all());
+        $board->update([
+            'name' => $request->name,
+        ]);
 
         session()->flash('success-message', Lang::get('boards.successUpdateBoard'));
 
