@@ -29,7 +29,7 @@ class TaskController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
-     * @param \App\Repositories\Task\TaskRepositoryInterface $taskRepository
+     * @param  \App\Repositories\Task\TaskRepositoryInterface  $taskRepository
      * @return void
      */
     public function __construct(TaskRepositoryInterface $taskRepository)
@@ -97,7 +97,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\TaskRequest $request;
+     * @param  \App\Http\Requests\TaskRequest  $request;
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
@@ -114,8 +114,9 @@ class TaskController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Task  $task
-     * @throws \Exception
      * @return \Illuminate\Http\Response
+     *
+     * @throws \Exception
      */
     public function destroy(Task $task)
     {

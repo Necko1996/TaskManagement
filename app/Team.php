@@ -18,7 +18,7 @@ class Team extends Model
     /**
      * Get all users.
      *
-     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
      */
     public function users()
     {

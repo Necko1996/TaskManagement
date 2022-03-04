@@ -20,7 +20,7 @@ class Card extends Model
     /**
      * Get all tasks sorted.
      *
-     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
      */
     public function tasks()
     {
@@ -30,7 +30,7 @@ class Card extends Model
     /**
      * Scope a query to order by status.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSortedStatus($query)

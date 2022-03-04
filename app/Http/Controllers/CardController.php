@@ -85,8 +85,9 @@ class CardController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Card  $card
-     * @throws \Exception
      * @return \Illuminate\Http\Response
+     *
+     * @throws \Exception
      */
     public function destroy(Card $card)
     {

@@ -16,7 +16,7 @@ interface BoardRepositoryInterface
     /**
      * Create new Board with card template.
      *
-     * @param array $array
+     * @param  array  $array
      * @return void
      */
     public function create(array $array);
@@ -24,7 +24,7 @@ interface BoardRepositoryInterface
     /**
      * Get board with related cards who have related tasks.
      *
-     * @param \App\Board $board
+     * @param  \App\Board  $board
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getAll(Board $board);
