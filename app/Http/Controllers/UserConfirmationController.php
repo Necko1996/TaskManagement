@@ -21,8 +21,7 @@ class UserConfirmationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\UserVerification $user_verification
-     *
+     * @param  \App\UserVerification  $user_verification
      * @return \Illuminate\Http\Response
      */
     public function confirm(UserVerification $user_verification)

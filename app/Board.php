@@ -20,7 +20,7 @@ class Board extends Model
     /**
      * Get all cards sorted.
      *
-     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
      */
     public function cards()
     {
@@ -30,7 +30,7 @@ class Board extends Model
     /**
      * Get all cards sorted.
      *
-     * @return  \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
      */
     public function tasks()
     {
@@ -40,7 +40,7 @@ class Board extends Model
     /**
      * Scope a query for auth user.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeForAuthUser($query)

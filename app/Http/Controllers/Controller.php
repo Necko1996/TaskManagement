@@ -21,7 +21,7 @@ class Controller extends BaseController
     /**
      * Show view with / without data.
      *
-     * @param  string $view
+     * @param  string  $view
      * @param  array  $data
      * @return \Illuminate\Http\Response
      */

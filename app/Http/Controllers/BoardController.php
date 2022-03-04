@@ -36,7 +36,7 @@ class BoardController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
-     * @param \App\Repositories\Board\BoardRepositoryInterface $boardRepository
+     * @param  \App\Repositories\Board\BoardRepositoryInterface  $boardRepository
      * @return void
      */
     public function __construct(BoardRepositoryInterface $boardRepository, TeamRepositoryInterface $teamRepository)
@@ -133,8 +133,9 @@ class BoardController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Board  $board
-     * @throws \Exception
      * @return \Illuminate\Http\Response
+     *
+     * @throws \Exception
      */
     public function destroy(Board $board)
     {

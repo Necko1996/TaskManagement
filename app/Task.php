@@ -23,7 +23,7 @@ class Task extends Model
     /**
      * Scope a query for auth user.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeForAuthUser($query)
@@ -34,7 +34,7 @@ class Task extends Model
     /**
      * Scope a query to order by status.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeSortedPriority($query)
