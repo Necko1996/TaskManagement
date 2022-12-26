@@ -3,9 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\AssignUserToTeamEvent;
-use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class UpdateTeamIDForUserEventListener implements ShouldQueue
 {

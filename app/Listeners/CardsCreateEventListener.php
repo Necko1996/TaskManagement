@@ -5,7 +5,6 @@ namespace App\Listeners;
 use App\Events\BoardCreateEvent;
 use App\Models\Card;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class CardsCreateEventListener implements ShouldQueue
 {
