@@ -1,11 +1,22 @@
 <?php
 
-use App\User;
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Board::class, function (Faker $faker) {
-    return [
-        'user_id' => factory(User::class)->create()->id,
-        'name' => $faker->name,
-    ];
-});
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class BoardFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'user_id' => User::factory()->make()->id,
+            'name' => $this->faker->name,
+        ];
+    }
+}

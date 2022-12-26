@@ -9,8 +9,6 @@ class DashboardController extends Controller
     /**
      * Create a new controller instance.
      * Only auth users can see.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -20,7 +18,7 @@ class DashboardController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {

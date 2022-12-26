@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Team;
+use App\Models\Team;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -18,9 +18,7 @@ class AssignUserToTeamEvent
     public $team;
 
     /**
-     * Create a new event instance.
-     *
-     * @return void
+     * @param Team $team
      */
     public function __construct(Team $team)
     {

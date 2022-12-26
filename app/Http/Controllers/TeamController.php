@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Events\AssignUserToTeamEvent;
-use App\Http\Requests\TeamRequest;
-use App\Http\Requests\TeamUserRequest;
+use App\Http\Requests\Team\StoreTeamRequest;
+use App\Http\Requests\Team\UserTeamRequest;
 use App\Repositories\Team\TeamRepositoryInterface;
-use App\Team;
-use App\User;
-use Lang;
+use App\Models\Team;
+use App\Models\User;
+use Illuminate\Support\Facades\Lang;
 
 class TeamController extends Controller
 {
@@ -41,7 +41,7 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -53,7 +53,7 @@ class TeamController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -63,10 +63,10 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\TeamRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreTeamRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(TeamRequest $request)
+    public function store(StoreTeamRequest $request)
     {
         $team = Team::create($request->all());
 
@@ -80,7 +80,7 @@ class TeamController extends Controller
     /**
      * Show the form for adding a new User to Team.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function addUser()
     {
@@ -92,10 +92,10 @@ class TeamController extends Controller
     /**
      * Store a new member of Team.
      *
-     * @param  \App\Http\Requests\TeamUserRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param UserTeamRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function storeUser(TeamUserRequest $request)
+    public function storeUser(UserTeamRequest $request)
     {
         $team = Team::find($request->team_id);
         $user = User::where('email', '=', $request->email);

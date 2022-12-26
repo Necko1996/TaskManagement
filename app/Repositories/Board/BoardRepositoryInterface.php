@@ -2,30 +2,30 @@
 
 namespace App\Repositories\Board;
 
-use App\Board;
+use App\Models\Board;
 
 interface BoardRepositoryInterface
 {
     /**
      * Get all boards by team.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return mixed
      */
     public function get();
 
     /**
      * Create new Board with card template.
      *
-     * @param  array  $array
-     * @return void
+     * @param array $array
+     * @return mixed
      */
     public function create(array $array);
 
     /**
      * Get board with related cards who have related tasks.
      *
-     * @param  \App\Board  $board
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @param Board $board
+     * @return mixed
      */
     public function getAll(Board $board);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,7 +20,7 @@ class Board extends Model
     /**
      * Get all cards sorted.
      *
-     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return mixed
      */
     public function cards()
     {
@@ -30,7 +30,7 @@ class Board extends Model
     /**
      * Get all cards sorted.
      *
-     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()
     {
@@ -40,8 +40,8 @@ class Board extends Model
     /**
      * Scope a query for auth user.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param $query
+     * @return mixed
      */
     public function scopeForAuthUser($query)
     {

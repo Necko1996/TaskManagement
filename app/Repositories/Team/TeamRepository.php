@@ -3,10 +3,13 @@
 namespace App\Repositories\Team;
 
 use App\Repositories\Repository;
-use App\Team;
+use App\Models\Team;
 
 class TeamRepository extends Repository implements TeamRepositoryInterface
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function get()
     {
         return Team::whereHas('Users', function ($query) {

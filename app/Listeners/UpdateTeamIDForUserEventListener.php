@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\AssignUserToTeamEvent;
-use App\User;
+use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 

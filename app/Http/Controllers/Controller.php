@@ -21,9 +21,9 @@ class Controller extends BaseController
     /**
      * Show view with / without data.
      *
-     * @param  string  $view
-     * @param  array  $data
-     * @return \Illuminate\Http\Response
+     * @param $view
+     * @param array $data
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     protected function view($view, $data = [])
     {

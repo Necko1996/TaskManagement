@@ -19,7 +19,6 @@ class TeamRepositoryServiceProvider extends ServiceProvider implements Deferrabl
         $this->app->bind(
             TeamRepositoryInterface::class,
             TeamRepository::class
-
         );
     }
 

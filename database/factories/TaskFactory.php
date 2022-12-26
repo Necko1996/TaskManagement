@@ -1,16 +1,26 @@
 <?php
 
-use App\Board;
-use App\Card;
-use App\User;
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Task::class, function (Faker $faker) {
-    return [
-        'board_id' => factory(Board::class)->create()->id,
-        'card_id' => factory(Card::class)->create()->id,
-        'title' => $faker->sentence,
-        'description' => $faker->paragraph,
-        'priority' => $faker->numberBetween(0, 2),
-    ];
-});
+use App\Models\Board;
+use App\Models\Card;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class TaskFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'board_id' => Board::factory()->make()->id,
+            'card_id' => Card::factory()->make()->id,
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'priority' => $this->faker->numberBetween(0, 2),
+        ];
+    }
+}

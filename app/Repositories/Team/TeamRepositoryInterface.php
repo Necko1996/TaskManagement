@@ -7,7 +7,7 @@ interface TeamRepositoryInterface
     /**
      * Get all Teams by Auth user.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return mixed
      */
     public function get();
 }

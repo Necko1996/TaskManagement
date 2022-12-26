@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Board;
-use App\Http\Requests\BoardEditRequest;
-use App\Http\Requests\BoardStoreRequest;
+use App\Models\Board;
+use App\Http\Requests\Board\StoreBoardRequest;
+use App\Http\Requests\Board\UpdateBoardRequest;
 use App\Repositories\Board\BoardRepositoryInterface;
 use App\Repositories\Team\TeamRepositoryInterface;
-use Lang;
+use Illuminate\Support\Facades\Lang;
 
 class BoardController extends Controller
 {
@@ -36,8 +36,8 @@ class BoardController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
-     * @param  \App\Repositories\Board\BoardRepositoryInterface  $boardRepository
-     * @return void
+     * @param BoardRepositoryInterface $boardRepository
+     * @param TeamRepositoryInterface $teamRepository
      */
     public function __construct(BoardRepositoryInterface $boardRepository, TeamRepositoryInterface $teamRepository)
     {
@@ -49,7 +49,7 @@ class BoardController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -61,7 +61,7 @@ class BoardController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -73,10 +73,10 @@ class BoardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\BoardStoreRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreBoardRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(BoardStoreRequest $request)
+    public function store(StoreBoardRequest $request)
     {
         $this->boardRepository->create(
             array_union($request->all(), ['user_id' => auth()->id()])
@@ -90,8 +90,8 @@ class BoardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Board  $board
-     * @return \Illuminate\Http\Response
+     * @param Board $board
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Board $board)
     {
@@ -103,8 +103,8 @@ class BoardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Board  $board
-     * @return \Illuminate\Http\Response
+     * @param Board $board
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Board $board)
     {
@@ -114,11 +114,11 @@ class BoardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\BoardEditRequest  $request
-     * @param  \App\Board  $board
-     * @return \Illuminate\Http\Response
+     * @param UpdateBoardRequest $request
+     * @param Board $board
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(BoardEditRequest $request, Board $board)
+    public function update(UpdateBoardRequest $request, Board $board)
     {
         $board->update([
             'name' => $request->name,
@@ -132,10 +132,8 @@ class BoardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Board  $board
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Exception
+     * @param Board $board
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Board $board)
     {

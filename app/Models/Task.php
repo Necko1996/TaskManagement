@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,8 +23,8 @@ class Task extends Model
     /**
      * Scope a query for auth user.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param $query
+     * @return mixed
      */
     public function scopeForAuthUser($query)
     {
@@ -34,8 +34,8 @@ class Task extends Model
     /**
      * Scope a query to order by status.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param $query
+     * @return mixed
      */
     public function scopeSortedPriority($query)
     {

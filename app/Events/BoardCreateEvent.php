@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Board;
+use App\Models\Board;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -18,9 +18,7 @@ class BoardCreateEvent
     public $board;
 
     /**
-     * Create a new event instance.
-     *
-     * @return void
+     * @param Board $board
      */
     public function __construct(Board $board)
     {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Board;
-use App\Card;
-use App\Http\Requests\CardRequest;
-use Lang;
+use App\Models\Board;
+use App\Models\Card;
+use App\Http\Requests\Card\CardRequest;
+use Illuminate\Support\Facades\Lang;
 
 class CardController extends Controller
 {
@@ -19,8 +19,6 @@ class CardController extends Controller
     /**
      * Create a new controller instance.
      * Only auth users can see.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -30,7 +28,8 @@ class CardController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Board $board
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create(Board $board)
     {
@@ -40,8 +39,9 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\CardRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param CardRequest $request
+     * @param Board $board
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CardRequest $request, Board $board)
     {
@@ -57,8 +57,8 @@ class CardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
+     * @param Card $card
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Card $card)
     {
@@ -68,9 +68,9 @@ class CardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\CardRequest  $request
-     * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
+     * @param CardRequest $request
+     * @param Card $card
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(CardRequest $request, Card $card)
     {
@@ -84,10 +84,8 @@ class CardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Card  $card
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Exception
+     * @param Card $card
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Card $card)
     {

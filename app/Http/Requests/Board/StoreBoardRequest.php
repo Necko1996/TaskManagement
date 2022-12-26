@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Board;
 
-class CardRequest extends Request
+use App\Http\Requests\Request;
+
+class StoreBoardRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +24,8 @@ class CardRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:5',
-            'status' => 'required|integer',
+            'name' => 'required|min:3',
+            'team_id' => 'required',
         ];
     }
 }

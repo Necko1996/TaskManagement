@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Team;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
 
-class TeamRequest extends FormRequest
+class StoreTeamRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

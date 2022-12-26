@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,7 +20,7 @@ class Card extends Model
     /**
      * Get all tasks sorted.
      *
-     * @return \App\User|\Illuminate\Database\Eloquent\Relations\Relation
+     * @return mixed
      */
     public function tasks()
     {
@@ -30,8 +30,8 @@ class Card extends Model
     /**
      * Scope a query to order by status.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param $query
+     * @return mixed
      */
     public function scopeSortedStatus($query)
     {

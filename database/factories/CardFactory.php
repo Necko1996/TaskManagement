@@ -1,12 +1,24 @@
 <?php
 
-use App\Board;
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Card::class, function (Faker $faker) {
-    return [
-        'board_id' => factory(Board::class)->create()->id,
-        'name' => $faker->name,
-        'status' => $faker->numberBetween(0, 3),
-    ];
-});
+use App\Models\Board;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class CardFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'board_id' => Board::factory()->make()->id,
+            'name' => $this->faker->name,
+            'status' => $this->faker->numberBetween(0, 3),
+        ];
+    }
+}
+

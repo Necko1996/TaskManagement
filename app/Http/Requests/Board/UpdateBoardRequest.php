@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Board;
 
-class BoardStoreRequest extends Request
+use App\Http\Requests\Request;
+
+class UpdateBoardRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +25,6 @@ class BoardStoreRequest extends Request
     {
         return [
             'name' => 'required|min:3',
-            'team_id' => 'required',
         ];
     }
 }
