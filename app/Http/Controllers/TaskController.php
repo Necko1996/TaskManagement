@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Task\TaskRequest;
 use App\Models\Board;
 use App\Models\Card;
-use App\Http\Requests\Task\TaskRequest;
-use App\Repositories\Task\TaskRepositoryInterface;
 use App\Models\Task;
+use App\Repositories\Task\TaskRepositoryInterface;
 use Illuminate\Support\Facades\Lang;
 
 class TaskController extends Controller
@@ -29,7 +29,7 @@ class TaskController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
-     * @param TaskRepositoryInterface $taskRepository
+     * @param  TaskRepositoryInterface  $taskRepository
      */
     public function __construct(TaskRepositoryInterface $taskRepository)
     {
@@ -40,8 +40,8 @@ class TaskController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param Board $board
-     * @param Card $card
+     * @param  Board  $board
+     * @param  Card  $card
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create(Board $board, Card $card)
@@ -52,9 +52,9 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param TaskRequest $request
-     * @param Board $board
-     * @param Card $card
+     * @param  TaskRequest  $request
+     * @param  Board  $board
+     * @param  Card  $card
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(TaskRequest $request, Board $board, Card $card)
@@ -74,7 +74,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Task $task)
@@ -87,7 +87,7 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Task $task)
@@ -100,8 +100,8 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param TaskRequest $request
-     * @param Task $task
+     * @param  TaskRequest  $request
+     * @param  Task  $task
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(TaskRequest $request, Task $task)
@@ -116,7 +116,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Task $task
+     * @param  Task  $task
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Task $task)

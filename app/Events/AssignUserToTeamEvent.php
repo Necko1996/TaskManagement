@@ -18,7 +18,7 @@ class AssignUserToTeamEvent
     public $team;
 
     /**
-     * @param Team $team
+     * @param  Team  $team
      */
     public function __construct(Team $team)
     {

@@ -21,4 +21,3 @@ class CardFactory extends Factory
         ];
     }
 }
-

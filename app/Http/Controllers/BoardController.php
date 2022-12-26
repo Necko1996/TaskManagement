@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Board;
 use App\Http\Requests\Board\StoreBoardRequest;
 use App\Http\Requests\Board\UpdateBoardRequest;
+use App\Models\Board;
 use App\Repositories\Board\BoardRepositoryInterface;
 use App\Repositories\Team\TeamRepositoryInterface;
 use Illuminate\Support\Facades\Lang;
@@ -36,8 +36,8 @@ class BoardController extends Controller
      * Create a new controller instance.
      * Only auth users can see.
      *
-     * @param BoardRepositoryInterface $boardRepository
-     * @param TeamRepositoryInterface $teamRepository
+     * @param  BoardRepositoryInterface  $boardRepository
+     * @param  TeamRepositoryInterface  $teamRepository
      */
     public function __construct(BoardRepositoryInterface $boardRepository, TeamRepositoryInterface $teamRepository)
     {
@@ -73,7 +73,7 @@ class BoardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreBoardRequest $request
+     * @param  StoreBoardRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreBoardRequest $request)
@@ -90,7 +90,7 @@ class BoardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Board $board
+     * @param  Board  $board
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Board $board)
@@ -103,7 +103,7 @@ class BoardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Board $board
+     * @param  Board  $board
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Board $board)
@@ -114,8 +114,8 @@ class BoardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateBoardRequest $request
-     * @param Board $board
+     * @param  UpdateBoardRequest  $request
+     * @param  Board  $board
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateBoardRequest $request, Board $board)
@@ -132,7 +132,7 @@ class BoardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Board $board
+     * @param  Board  $board
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Board $board)

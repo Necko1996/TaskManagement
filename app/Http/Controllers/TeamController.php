@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Events\AssignUserToTeamEvent;
 use App\Http\Requests\Team\StoreTeamRequest;
 use App\Http\Requests\Team\UserTeamRequest;
-use App\Repositories\Team\TeamRepositoryInterface;
 use App\Models\Team;
 use App\Models\User;
+use App\Repositories\Team\TeamRepositoryInterface;
 use Illuminate\Support\Facades\Lang;
 
 class TeamController extends Controller
@@ -63,7 +63,7 @@ class TeamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreTeamRequest $request
+     * @param  StoreTeamRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreTeamRequest $request)
@@ -92,7 +92,7 @@ class TeamController extends Controller
     /**
      * Store a new member of Team.
      *
-     * @param UserTeamRequest $request
+     * @param  UserTeamRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function storeUser(UserTeamRequest $request)

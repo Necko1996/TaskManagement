@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Models\Card;
 use App\Events\BoardCreateEvent;
+use App\Models\Card;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 

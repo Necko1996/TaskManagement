@@ -22,7 +22,7 @@ class Controller extends BaseController
      * Show view with / without data.
      *
      * @param $view
-     * @param array $data
+     * @param  array  $data
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     protected function view($view, $data = [])

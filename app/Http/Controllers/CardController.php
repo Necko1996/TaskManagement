@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Card\CardRequest;
 use App\Models\Board;
 use App\Models\Card;
-use App\Http\Requests\Card\CardRequest;
 use Illuminate\Support\Facades\Lang;
 
 class CardController extends Controller
@@ -28,7 +28,7 @@ class CardController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @param Board $board
+     * @param  Board  $board
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create(Board $board)
@@ -39,8 +39,8 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param CardRequest $request
-     * @param Board $board
+     * @param  CardRequest  $request
+     * @param  Board  $board
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CardRequest $request, Board $board)
@@ -57,7 +57,7 @@ class CardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Card $card
+     * @param  Card  $card
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Card $card)
@@ -68,8 +68,8 @@ class CardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param CardRequest $request
-     * @param Card $card
+     * @param  CardRequest  $request
+     * @param  Card  $card
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(CardRequest $request, Card $card)
@@ -84,7 +84,7 @@ class CardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Card $card
+     * @param  Card  $card
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Card $card)

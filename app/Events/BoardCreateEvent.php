@@ -18,7 +18,7 @@ class BoardCreateEvent
     public $board;
 
     /**
-     * @param Board $board
+     * @param  Board  $board
      */
     public function __construct(Board $board)
     {

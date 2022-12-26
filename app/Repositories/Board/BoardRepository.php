@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Board;
 
-use App\Models\Board;
 use App\Events\BoardCreateEvent;
-use App\Repositories\Repository;
+use App\Models\Board;
 use App\Models\Team;
+use App\Repositories\Repository;
 
 class BoardRepository extends Repository implements BoardRepositoryInterface
 {
@@ -24,7 +24,7 @@ class BoardRepository extends Repository implements BoardRepositoryInterface
     /**
      * Create new Board with card template.
      *
-     * @param array $array
+     * @param  array  $array
      */
     public function create(array $array)
     {
@@ -36,7 +36,7 @@ class BoardRepository extends Repository implements BoardRepositoryInterface
     /**
      * Get board with related cards who have related tasks.
      *
-     * @param Board $board
+     * @param  Board  $board
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
      */
     public function getAll(Board $board)

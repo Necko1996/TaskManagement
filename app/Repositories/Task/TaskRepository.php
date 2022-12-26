@@ -8,7 +8,7 @@ use App\Repositories\Repository;
 class TaskRepository extends Repository implements TaskRepositoryInterface
 {
     /**
-     * @param int $board_id
+     * @param  int  $board_id
      * @return mixed
      */
     public function getCards(int $board_id)
