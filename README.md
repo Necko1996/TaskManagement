@@ -25,4 +25,4 @@ If you find some error post in Issues tab with label "Bug"
 
 ## Contact
 * Skype: nemanja.ivankovic1
-* Email: 064necko5@gmail.com | nemanja.ivankovic@timster.rs
+* Email: 064necko5@gmail.com
